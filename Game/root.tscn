@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bnaqwt528cw56"]
+
+[ext_resource type="Script" uid="uid://b8pf6a22hpd5s" path="res://Game/Root.cs" id="1_5bawo"]
+
+[node name="Root" type="Node" unique_id=93183204]
+script = ExtResource("1_5bawo")
+
+[node name="View" type="Node3D" parent="." unique_id=836726947]
+
+[node name="Simulation" type="Node2D" parent="." unique_id=1383963018]
+
+[node name="UI" type="Control" parent="." unique_id=1750385453]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
