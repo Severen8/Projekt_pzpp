@@ -1,12 +1,16 @@
 # Projekt_pzpp
 
-Wymagane systemy w grze:
+Niefukcjonalne:
+-  Stworzenie Modeli i animacji przeciwników
+-  Stworzenie Modeli i animacji wieżyczek
+-  Opracowanie i implemetacja GUI
+-  Opracowanie samouczka do gry
+-  Dodanie Systemu obsługująceo grę podczas gdy ta jest W tle
+Funkcjonalne:
+-  Stworzenie Systemu generowania mapy
+-  Stworzenie Systemu obsługi rund.
+-  Stworzenie Stworzenie AI przeciwników
+-  Stworzenie Systemu stawiania wieżyczek
+-  Stworzenie Systemów modyfikacji wieżyczek (ulepszenia i sprzedaż)
+-  Stworzenie Systemu targetowania przeciwników przez wieżyczki
 
-1. generator losowych map
-2. spawnowanie wrogów (system fal)
-3. ruch wroga po sciezce
-4. loot z przeciwników
-5. placement towerów
-6. edit wieżyczek (sell,upgrade/replace czy inne)
-7. system powerupów
-8. bossy
