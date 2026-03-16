@@ -6,7 +6,6 @@
     <RootNamespace>MedievalTDIncremental</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Game\Logic\" />
     <Folder Include="Game\UI\" />
     <Folder Include="Game\View\" />
   </ItemGroup>
