@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d336i22jvtt8a"]
+
+[ext_resource type="PackedScene" uid="uid://cxkqfsj68a6kd" path="res://Ballista_T1_test.fbx" id="1_j3clt"]
+[ext_resource type="Script" uid="uid://ctv041k7wakkx" path="res://ballista_t_1_test.gd" id="2_mmjuk"]
+
+[node name="Ballista_T1_test" unique_id=88852589 instance=ExtResource("1_j3clt")]
+script = ExtResource("2_mmjuk")
+
+[node name="ArrowBody" parent="." index="0" unique_id=485906524]
+transform = Transform3D(100, 2.5605557e-06, -6.181725e-06, 6.1817254e-06, -70.710686, 70.710655, -2.560556e-06, -70.710655, -70.710686, 0, 0.8063528, 0)
+
+[node name="ArrowHead" parent="." index="1" unique_id=262610383]
+transform = Transform3D(100, 2.5605557e-06, -6.181725e-06, 6.1817254e-06, -70.710686, 70.710655, -2.560556e-06, -70.710655, -70.710686, 0, 0.8063528, 0)
+
+[node name="ArrowString" parent="." index="2" unique_id=1990885563]
+transform = Transform3D(100, 2.5605557e-06, -6.181725e-06, 6.1817254e-06, -70.710686, 70.710655, -2.560556e-06, -70.710655, -70.710686, 0, 0.8063528, 0)
+
+[node name="BallistaBody" parent="." index="3" unique_id=628790258]
+transform = Transform3D(100, 2.5605557e-06, -6.181725e-06, 6.1817254e-06, -70.710686, 70.710655, -2.560556e-06, -70.710655, -70.710686, 0, 0.8063528, 0)
+
+[node name="BowBody" parent="." index="4" unique_id=492929156]
+transform = Transform3D(100, 2.5605557e-06, -6.181725e-06, 6.1817254e-06, -70.710686, 70.710655, -2.560556e-06, -70.710655, -70.710686, 0, 0.8063528, 0)
+
+[node name="IronStrengthening" parent="." index="5" unique_id=1172413465]
+transform = Transform3D(100, 2.5605557e-06, -6.181725e-06, 6.1817254e-06, -70.710686, 70.710655, -2.560556e-06, -70.710655, -70.710686, 0, 0.8063528, 0)

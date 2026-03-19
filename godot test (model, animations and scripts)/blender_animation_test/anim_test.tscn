@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://rlm8w1prgiol"]
+
+[ext_resource type="Script" uid="uid://ck3huo80e7bqu" path="res://anim_test.gd" id="1_4pmk4"]
+[ext_resource type="PackedScene" uid="uid://d336i22jvtt8a" path="res://ballista_t_1_test.tscn" id="1_ttyv3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ttyv3"]
+size = Vector3(10, 1, 10)
+
+[node name="Node3D" type="Node3D" unique_id=306039954]
+script = ExtResource("1_4pmk4")
+
+[node name="Ballista_T1_test" parent="." unique_id=88852589 instance=ExtResource("1_ttyv3")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=7753451]
+transform = Transform3D(0.87250453, -0.26167142, 0.41263053, 0, 0.8445056, 0.53554684, -0.48860604, -0.467267, 0.73683494, 1.6171153, 2.7543635, 2.3608792)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1934035761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7133187, -0.08216946)
+mesh = SubResource("BoxMesh_ttyv3")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=236576736]
+transform = Transform3D(0.735, 0, 0, 0, 0.735, 0, 0, 0, 0.735, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=456093985]
+transform = Transform3D(-0.19509056, -0.54844815, 0.81310785, 0, 0.8290376, 0.5591929, -0.98078525, 0.10909326, -0.16173741, 2.612622, 2.170614, -0.49762368)
