@@ -41,7 +41,7 @@ public partial class PathLayer : TileMapLayer
 		return next - direction;
 	}
 
-	public List<Vector2> GetPath() {
+	public List<Vector2> GetVertexPath() {
 		Vector2 TileOffset = new Vector2(this.TileSet.TileSize.X, this.TileSet.TileSize.Y) * 0.5f;
 		return this.Vertices
 			.Select(vert => 

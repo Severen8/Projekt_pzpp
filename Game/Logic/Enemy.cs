@@ -21,8 +21,10 @@ public partial class Enemy : AnimatableBody2D
 	
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
-		if(PathIndex >= Path.Count-1) 
+		if (PathIndex >= Path.Count - 1) {
+			Free();
 			return;
+		}
 		Position = Position.MoveToward(Path[PathIndex + 1], Speed*(float)delta);
 
 		if (Position.IsEqualApprox(Path[PathIndex + 1]))

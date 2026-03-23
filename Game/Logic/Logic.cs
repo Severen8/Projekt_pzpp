@@ -11,7 +11,7 @@ public partial class Logic : Node2D
 	
 	public override void _Ready() {
 		base._Ready();
-		Path = GetNode<PathLayer>("PathLayer").GetPath();
+		Path = GetNode<PathLayer>("PathLayer").GetVertexPath();
 		MonsterInstance = EnemyScene.Instantiate<Enemy>();
 		MonsterInstance.ConstructEnemy(this, Path);
 	}
