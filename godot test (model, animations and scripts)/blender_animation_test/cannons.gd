@@ -25,10 +25,15 @@ func play_anim(v, s = 1.0):
 func dir_rot(a):
 	var num = str(self.get_meta("Tier"))
 	var not_rotate_parts = [
-		selected.get_node_or_null("C"+num+"PlatformBase"),
-		selected.get_node_or_null("C"+num+"TowerBase"),
-		selected.get_node_or_null("C"+num+"TowerFoot"),
-		selected.get_node_or_null("C"+num+"Reinforcements")
+		selected.get_node_or_null("C"+num+"CannonTower_Base"),
+		selected.get_node_or_null("C"+num+"CannonTowerBase"),
+		selected.get_node_or_null("C"+num+"CannonTower_Rotator"),
+		selected.get_node_or_null("C"+num+"CogWheelBase"),
+		selected.get_node_or_null("C"+num+"CogWheelBase2"),
+		selected.get_node_or_null("C"+num+"CogWheelBase3"),
+		selected.get_node_or_null("C"+num+"CannonTower_Reinforcements"),
+		selected.get_node_or_null("C"+num+"CannonTowerBaseReinf"),
+		selected.get_node_or_null("C"+num+"CannonTower_Studs")
 		]
 	var def = self.rotation_degrees
 	def.y = a
