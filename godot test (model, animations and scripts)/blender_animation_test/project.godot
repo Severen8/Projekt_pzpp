@@ -14,6 +14,10 @@ config/name="Blender animation test"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="Blender animation test"
+
 [input]
 
 spawn_anim={
