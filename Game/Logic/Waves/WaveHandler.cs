@@ -1,4 +1,5 @@
 using Godot;
+using MedievalTDIncremental.Game.Logic.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -30,7 +31,9 @@ namespace MedievalTDIncremental.Game.Logic.Waves {
 		}
 
 		private void OnEnemySpawned(object sender, EnemySpawnArgs e) {
-			e.SpawnedEnemy.Spawn(this, Path);
+			Enemy enemy = EnemySpawner.FromString(e.EnemyType);
+			enemy.StartPathfinding(Path);
+			CallDeferred("add_child", enemy);
 		}
 
 		private void OnWaveEnded(object sender, EventArgs e) {

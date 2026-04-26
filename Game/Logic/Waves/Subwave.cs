@@ -66,10 +66,7 @@ namespace MedievalTDIncremental.Game.Logic.Waves {
 
 		private void SpawnNextEnemy() {
 			EnemiesRemaining--;
-			//todo: move this up to logic probably, don't need to instantiate this early
-			//alternatively track all enemies under this subwave and see when they disappear
-			//and end the subwave early in that case
-			EnemySpawned.Invoke(this, new() { SpawnedEnemy = EnemySpawner.FromString(EnemyType) });
+			EnemySpawned.Invoke(this, new() { EnemyType = this.EnemyType });
 		}
 	}
 }

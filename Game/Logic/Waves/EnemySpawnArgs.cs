@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace MedievalTDIncremental.Game.Logic.Waves {
 	public class EnemySpawnArgs : EventArgs{
-		public required Enemy SpawnedEnemy { get; set; }
+		public required string EnemyType { get; set; }
 	}
 }

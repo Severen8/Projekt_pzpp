@@ -16,10 +16,9 @@ public partial class Enemy : AnimatableBody2D
 
 
 
-	public void Spawn(Node parent, List<Vector2> path) {
+	public void StartPathfinding(List<Vector2> path) {
 		this.Position = path[0];
 		this.Path = path;
-		parent.CallDeferred("add_child", this);
 	}
 
 	
