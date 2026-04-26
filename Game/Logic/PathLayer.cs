@@ -11,7 +11,6 @@ public partial class PathLayer : TileMapLayer
 	List<Vector2I> Vertices { get; set; }
 
 	public override void _Ready() {
-		base._Ready();
 		OrderedNodes = [GetUsedCellsById(0, new Vector2I(0, 0), 0).First()];
 		Vertices = [.. OrderedNodes];
 		ConstructGraph();

@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bs1gme4mtbp6h" path="res://Game/Logic/Logic.cs" id="1_t85uc"]
 [ext_resource type="Script" uid="uid://cp4q1hgwlnnci" path="res://Game/Logic/PathLayer.cs" id="2_2gloe"]
 [ext_resource type="Texture2D" uid="uid://3fkqwl8gm8mf" path="res://Untitled.png" id="2_t85uc"]
+[ext_resource type="Script" uid="uid://busasp7pegtrg" path="res://Game/Logic/Waves/WaveHandler.cs" id="4_ga5si"]
+[ext_resource type="Script" uid="uid://ccfmfwbqn47ra" path="res://Game/Logic/Waves/Subwave.cs" id="5_f0804"]
+[ext_resource type="Script" uid="uid://chapfbdi7o6uv" path="res://Game/Logic/Waves/Wave.cs" id="5_oa27c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ga5si"]
 texture = ExtResource("2_t85uc")
@@ -16,10 +19,45 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_ga5si")
 
-[node name="Logic" type="Node2D" unique_id=1255630234]
+[sub_resource type="Resource" id="Resource_w2ixw"]
+script = ExtResource("5_f0804")
+EnemyType = "Enemy"
+EnemyCount = 5
+BetweenDelay = 1.0
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_788ox"]
+script = ExtResource("5_f0804")
+EnemyType = "Enemy"
+EnemyCount = 2
+StartDelay = 7.0
+BetweenDelay = 2.0
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_f0804"]
+script = ExtResource("5_oa27c")
+Subwaves = Array[Object]([SubResource("Resource_w2ixw"), SubResource("Resource_788ox")])
+metadata/_custom_type_script = "uid://chapfbdi7o6uv"
+
+[sub_resource type="Resource" id="Resource_y45rh"]
+script = ExtResource("5_f0804")
+EnemyType = "Enemy"
+StartDelay = 3.0
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_4em3t"]
+script = ExtResource("5_oa27c")
+Subwaves = Array[Object]([SubResource("Resource_y45rh")])
+metadata/_custom_type_script = "uid://chapfbdi7o6uv"
+
+[node name="Logic" type="Node2D" unique_id=2036050213]
 script = ExtResource("1_t85uc")
 
-[node name="PathLayer" type="TileMapLayer" parent="." unique_id=588759879]
+[node name="PathLayer" type="TileMapLayer" parent="." unique_id=1343866586]
 tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ga5si")
 script = ExtResource("2_2gloe")
+
+[node name="WaveHandler" type="Node2D" parent="." unique_id=248169515]
+script = ExtResource("4_ga5si")
+Waves = Array[Object]([SubResource("Resource_f0804"), SubResource("Resource_4em3t")])
