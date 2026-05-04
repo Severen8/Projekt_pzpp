@@ -22,8 +22,8 @@ public partial class Logic : Node2D
 		//todo: potentially make a dedicated method instead of a delegate if i need to do something first
 		this.WaveHandler.EnemySpawned += (s, e) => this.EnemyHandler.SpawnEnemy(e.EnemyType);
 		this.WaveHandler.CallDeferred("NextWave");
-		GD.Print("logic done");
 	}
+
 
 	void OnEnemyEscaped(Object s, EnemyEscapeArgs escapeArgs) {
 		Lives = Math.Max(0, Lives-escapeArgs.Damage);

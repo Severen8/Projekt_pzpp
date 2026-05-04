@@ -13,7 +13,7 @@ namespace MedievalTDIncremental.Game.Logic {
 		//todo: maybe do this through dependency injection instead, so this doesn't have to be a node?
 		[Export]
 		public Wave[] Waves { get; set; }
-		private int CurrentWave { get; set; }
+		public int CurrentWave { get; private set; }
 
 
 		public override void _Ready() {
@@ -35,8 +35,8 @@ namespace MedievalTDIncremental.Game.Logic {
 		private void OnWaveEnded(object sender, EventArgs e) {
 			Waves[CurrentWave].EnemySpawned -= OnEnemySpawned;
 			Waves[CurrentWave].WaveEnded -= OnWaveEnded;
-			Waves[CurrentWave++].Dispose();
-			if(CurrentWave < Waves.Length)
+			Waves[CurrentWave].Dispose();
+			if(++CurrentWave < Waves.Length)
 				NextWave(); //todo: change this to have a potentially skippable delay, maybe handled by Logic.cs
 			WaveEnded.Invoke(this, e);
 		}
