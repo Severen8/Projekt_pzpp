@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://02wbshaj2amk"]
+
+[ext_resource type="Script" uid="uid://dminnp13l0mwa" path="res://scenes/ballistas.gd" id="1_yvd4o"]
+[ext_resource type="PackedScene" uid="uid://cyrsyjgaqerkx" path="res://models/Spawn_T1.fbx" id="2_yvd4o"]
+[ext_resource type="PackedScene" uid="uid://cam0cohywutpy" path="res://models/Spawn_T2.fbx" id="3_n4adm"]
+[ext_resource type="PackedScene" uid="uid://cwv3q2a1ofxfo" path="res://models/Spawn_T3.fbx" id="4_pw3hx"]
+[ext_resource type="PackedScene" uid="uid://bwqojivvcwiec" path="res://models/Spawn_T4.fbx" id="5_uqf0x"]
+
+[node name="Ballistas" type="Node3D" unique_id=1460860428]
+script = ExtResource("1_yvd4o")
+metadata/Tier = 1
+
+[node name="T1" parent="." unique_id=746619423 instance=ExtResource("2_yvd4o")]
+
+[node name="T2" parent="." unique_id=832528228 instance=ExtResource("3_n4adm")]
+
+[node name="T3" parent="." unique_id=73679401 instance=ExtResource("4_pw3hx")]
+
+[node name="T4" parent="." unique_id=472371442 instance=ExtResource("5_uqf0x")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=539634950]

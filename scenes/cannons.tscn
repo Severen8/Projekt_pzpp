@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cnoy3iwx458wn"]
+
+[ext_resource type="Script" uid="uid://bbdpfd5ojyhsx" path="res://scenes/cannons.gd" id="1_5s78e"]
+[ext_resource type="PackedScene" uid="uid://bof01ts7fiqg2" path="res://models/C1.fbx" id="2_h1f4o"]
+[ext_resource type="PackedScene" uid="uid://dtt42cqg82uou" path="res://models/C2.fbx" id="3_gficf"]
+[ext_resource type="PackedScene" uid="uid://cam08uqkwmybi" path="res://models/C3.fbx" id="4_ab5he"]
+[ext_resource type="PackedScene" uid="uid://ci870dl0np3dj" path="res://models/C4.fbx" id="5_w0qnp"]
+
+[node name="cannons" type="Node3D" unique_id=1517872366]
+script = ExtResource("1_5s78e")
+metadata/Tier = 1
+
+[node name="C1" parent="." unique_id=1791269837 instance=ExtResource("2_h1f4o")]
+
+[node name="C2" parent="." unique_id=738495950 instance=ExtResource("3_gficf")]
+
+[node name="C3" parent="." unique_id=315837823 instance=ExtResource("4_ab5he")]
+
+[node name="C4" parent="." unique_id=2143497938 instance=ExtResource("5_w0qnp")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=85800478]

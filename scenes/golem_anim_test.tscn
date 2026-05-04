@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cuebteufuyaod"]
+
+[ext_resource type="Script" uid="uid://be8nfp88isq2d" path="res://scenes/golem_anim_test.gd" id="1_dib2n"]
+[ext_resource type="PackedScene" uid="uid://dmrm158n255wn" path="res://scenes/golem.tscn" id="2_mo5q5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5rr4v"]
+size = Vector3(10, 1, 10)
+
+[node name="golem_anim_test" type="Node3D" unique_id=676602176]
+script = ExtResource("1_dib2n")
+
+[node name="golem" parent="." unique_id=68181748 instance=ExtResource("2_mo5q5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19823611, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1161621956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7133187, -0.08216946)
+mesh = SubResource("BoxMesh_5rr4v")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1245413850]
+transform = Transform3D(0.735, 0, 0, 0, 0.735, 0, 0, 0, 0.735, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Marker3D" unique_id=1728282422]
+transform = Transform3D(1.187081, -0.35601553, 0.5614021, 0, 1.1489872, 0.72863513, -0.6647701, -0.6357374, 1.0024965, 2.2001567, 3.7474334, 3.2120805)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=1700837546]
+transform = Transform3D(-0.26542935, -0.74618804, 1.1062692, 0, 1.1279424, 0.76080674, -1.3344017, 0.1484262, -0.2200509, 3.250842, 3.0464463, -1.8387929)
