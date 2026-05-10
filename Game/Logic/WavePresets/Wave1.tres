@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Wave" format=3 uid="uid://qiepnb4dhegy"]
+
+[ext_resource type="Script" uid="uid://cy4slvetgb85f" path="res://Game/Logic/MobGroup.cs" id="1_5jvsp"]
+[ext_resource type="Script" uid="uid://71d65mle2gts" path="res://Game/Logic/Wave.cs" id="1_7otru"]
+
+[sub_resource type="Resource" id="Resource_24bw4"]
+script = ExtResource("1_5jvsp")
+MobType = "Goblin"
+MobCount = 10
+BetweenDelay = 1.0
+metadata/_custom_type_script = "uid://cy4slvetgb85f"
+
+[resource]
+script = ExtResource("1_7otru")
+Mobs = Array[Object]([SubResource("Resource_24bw4")])
+metadata/_custom_type_script = "uid://71d65mle2gts"

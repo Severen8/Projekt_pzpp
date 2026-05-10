@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://ch6jl4m1gefny"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_g8cv2"]
+
+[resource]
+resource_name = "Waves"
+script = SubResource("CSharpScript_g8cv2")
