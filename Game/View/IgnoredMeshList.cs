@@ -24,7 +24,7 @@ namespace MedievalTDIncremental.Game.View {
 				string meshPath = string.Concat(Prefix, tier, MeshNames[i]);
 				var mesh = model.GetNodeOrNull<MeshInstance3D>(meshPath);
 				if (mesh == null) {
-					GD.PrintErr($"Failed to fetch static mesh {model.GetPath().GetConcatenatedNames()}/{meshPath}");
+					GD.PushWarning($"Did not fetch static mesh {model.GetPath().GetConcatenatedNames()}/{meshPath}");
 					return;
 				}
 				Meshes.Add(mesh);

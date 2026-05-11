@@ -15,9 +15,11 @@ namespace MedievalTDIncremental.Game.View {
 
 		public override void _Ready() {
 			base._Ready();
-			foreach(Node3D model in this.GetChildren()) {
+			var children = GetChildren();
+			for(int i=0; i<children.Count; i++) {
+				Node3D model = (Node3D) children[i];
 				model.Hide();
-				IgnoredMeshes.ScrapeMeshes(model, Tier.ToString());
+				IgnoredMeshes.ScrapeMeshes(model, (i+1).ToString());
 				IgnoredMeshes.SetMeshLock(true);
 			}
 			SetTier(1);
@@ -31,7 +33,7 @@ namespace MedievalTDIncremental.Game.View {
 				PlayAnimation("shoot");
 			}
 			if (Input.IsActionJustPressed("reload_anim")) {
-				SetTier(Tier + 1);
+				SetTier(Tier+1);
 			}
 		}
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cyrsyjgaqerkx"
-path="res://.godot/imported/Spawn_T1.fbx-dfe0f599b9cca5dbbc0488b1fa3576a7.scn"
+uid="uid://cam0cohywutpy"
+path="res://.godot/imported/T2.fbx-70783130a7a9d041eab746c17c30620d.scn"
 
 [deps]
 
-source_file="res://Game/View/models/Spawn_T1.fbx"
-dest_files=["res://.godot/imported/Spawn_T1.fbx-dfe0f599b9cca5dbbc0488b1fa3576a7.scn"]
+source_file="res://Game/View/Ballista/Models/T2.fbx"
+dest_files=["res://.godot/imported/T2.fbx-70783130a7a9d041eab746c17c30620d.scn"]
 
 [params]
 

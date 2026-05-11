@@ -20,7 +20,7 @@ namespace MedievalTDIncremental.Game.View {
 			base._Ready();
 			this.SetCurrentModel(0);
 			this.AudioPlayer = new AudioStreamPlayer(); //todo: extract this to a dedicated class
-			this.AddChild(AudioPlayer);
+			this.AddChild(AudioPlayer, false, InternalMode.Front);
 			ScrapeAudio();
 		}
 
@@ -43,15 +43,15 @@ namespace MedievalTDIncremental.Game.View {
 		) {
 			AudibleAnimation animation;
 			if(!Animations.TryGetValue(animationKey, out animation)){
-				GD.PrintErr($"Attempted to play non-existent animation {animationKey} in {GetPath().GetConcatenatedNames()}");
+				GD.PushError($"Attempted to play non-existent animation {animationKey} in {GetPath().GetConcatenatedNames()}");
 				return;
 			}
 
 			if(soundOn && animation.AudioStream != null) {
+				AudioPlayer.Stop();
 				AudioPlayer.Stream = animation.AudioStream;
 				AudioPlayer.Play();
 			}
-			AnimationPlayer.Stop();
 			AnimationPlayer.PlaySection("Scene", animation.StartTime, animation.EndTime, -1, speed);
 		}
 
