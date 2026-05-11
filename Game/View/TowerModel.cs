@@ -17,6 +17,8 @@ namespace MedievalTDIncremental.Game.View {
 			base._Ready();
 			foreach(Node3D model in this.GetChildren()) {
 				model.Hide();
+				IgnoredMeshes.ScrapeMeshes(model, Tier.ToString());
+				IgnoredMeshes.SetMeshLock(true);
 			}
 			SetTier(1);
 		}
