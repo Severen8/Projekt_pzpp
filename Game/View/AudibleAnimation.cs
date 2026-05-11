@@ -24,6 +24,8 @@ namespace MedievalTDIncremental.Game.View {
 		public void LoadAudio(string path) {
 			if (FileAccess.FileExists(path)) {
 				AudioStream = ResourceLoader.Load<AudioStream>(path);
+			} else {
+				GD.PushWarning($"Audio at {path} not found");
 			}
 		}
 	}

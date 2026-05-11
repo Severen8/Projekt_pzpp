@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,16 +22,18 @@ namespace MedievalTDIncremental.Game.View {
 			this.AnimationPlayer = CurrentModel.GetNode<AnimationPlayer>("AnimationPlayer");
 
 			this.AudioPlayer = new AudioStreamPlayer(); //todo: extract this to a dedicated class
+			this.AddChild(AudioPlayer);
 			ScrapeAudio();
 		}
 
 
-
+		//todo: remove temp test setup
 		public override void _Process(double delta) {
 			base._Process(delta);
-			if (Input.IsActionJustPressed("spawn_anim")) {
+			if (Input.IsActionJustPressed("spawn_anim"))
+				this.PlayAnimation("spawn");
+			if(Input.IsActionJustPressed("rotate_left"))
 				this.RotateTowards(Vector2.Zero, Vector2.Left);
-			}
 		}
 
 
@@ -70,9 +73,11 @@ namespace MedievalTDIncremental.Game.View {
 
 
 		protected void ScrapeAudio() {
+			int sceneNameIndex = SceneFilePath.RFind("/");
+			string directoryPath = SceneFilePath.Substring(0, sceneNameIndex);
 			foreach (string animationName in Animations.Keys) {
 				var animation = Animations[animationName];
-				string audioPath = SceneFilePath + "/Sounds/" + animationName + ".mp3";
+				string audioPath = directoryPath + "/Audio/" + animationName + ".mp3";
 				animation.LoadAudio(audioPath);
 			}
 		}

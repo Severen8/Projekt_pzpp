@@ -1,10 +1,47 @@
 [gd_scene format=3 uid="uid://dc42fkuxfa0ku"]
 
 [ext_resource type="Script" uid="uid://bme5trtc7xss3" path="res://Game/View/AnimatableModel.cs" id="1_416j6"]
+[ext_resource type="Script" uid="uid://bsu14b4li426i" path="res://Game/View/AudibleAnimation.cs" id="2_2a0yv"]
 [ext_resource type="PackedScene" uid="uid://doqe40d2uk7bl" path="res://Game/View/Golem/Model.fbx" id="2_fnxc3"]
+
+[sub_resource type="Resource" id="Resource_amiua"]
+script = ExtResource("2_2a0yv")
+EndTime = 2.51
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_3gp4c"]
+script = ExtResource("2_2a0yv")
+StartTime = 3.283
+EndTime = 4.989
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_uycfj"]
+script = ExtResource("2_2a0yv")
+StartTime = 5.786
+EndTime = 7.47
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_01tfe"]
+script = ExtResource("2_2a0yv")
+StartTime = 8.285
+EndTime = 9.966
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_oweho"]
+script = ExtResource("2_2a0yv")
+StartTime = 10.803
+EndTime = 13.292
+metadata/_custom_type_script = "uid://bsu14b4li426i"
 
 [node name="Golem" type="Node3D" unique_id=942159992]
 script = ExtResource("1_416j6")
+Animations = Dictionary[String, Object]({
+"attack": SubResource("Resource_01tfe"),
+"death": SubResource("Resource_oweho"),
+"idle": SubResource("Resource_3gp4c"),
+"move": SubResource("Resource_uycfj"),
+"spawn": SubResource("Resource_amiua")
+})
 metadata/_custom_type_script = "uid://bme5trtc7xss3"
 
-[node name="Model" parent="." unique_id=800742075 instance=ExtResource("2_fnxc3")]
+[node name="Model" parent="." unique_id=976226111 instance=ExtResource("2_fnxc3")]
