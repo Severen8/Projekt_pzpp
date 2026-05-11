@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bme5trtc7xss3" path="res://Game/View/AnimatableModel.cs" id="1_416j6"]
 [ext_resource type="Script" uid="uid://bsu14b4li426i" path="res://Game/View/AudibleAnimation.cs" id="2_2a0yv"]
-[ext_resource type="PackedScene" uid="uid://doqe40d2uk7bl" path="res://Game/View/Golem/Model.fbx" id="2_fnxc3"]
+[ext_resource type="PackedScene" uid="uid://doqe40d2uk7bl" path="res://Game/View/Golem/Models/Model.fbx" id="2_fnxc3"]
 
 [sub_resource type="Resource" id="Resource_amiua"]
 script = ExtResource("2_2a0yv")

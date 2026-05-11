@@ -10,23 +10,36 @@ namespace MedievalTDIncremental.Game.View {
 	public partial class TowerModel: AnimatableModel {
 		[Export]
 		public IgnoredMeshList IgnoredMeshes { get; set; }
+		public int Tier { get; set; }
+
 
 		public override void _Ready() {
 			base._Ready();
-			IgnoredMeshes.ScrapeMeshes(CurrentModel);
-		}
-
-		public override void RotateTowards(Vector2 simPos, Vector2 target) {
-			base.RotateTowards(simPos, target);
-			RevertStaticMeshRotation();
-		}
-
-		protected void RevertStaticMeshRotation() {
-			foreach (MeshInstance3D mesh in IgnoredMeshes.Meshes) {
-				Vector3 meshNewRotation = mesh.Rotation;
-				meshNewRotation.Y = -Rotation.Y;
-				mesh.Rotation = meshNewRotation;
+			foreach(Node3D model in this.GetChildren()) {
+				model.Hide();
 			}
+			SetTier(1);
+		}
+
+
+
+		public override void _Process(double delta) {
+			base._Process(delta);
+			if (Input.IsActionJustPressed("shoot_anim")) {
+				PlayAnimation("shoot");
+			}
+			if (Input.IsActionJustPressed("reload_anim")) {
+				SetTier(Tier + 1);
+			}
+		}
+
+		
+		protected void SetTier(int newTier) {
+			CurrentModel.Hide();
+			this.Tier = newTier;
+			SetCurrentModel(newTier-1);
+			CurrentModel.Show();
+			PlayAnimation("upgrade");
 		}
 	}
 }

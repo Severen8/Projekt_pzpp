@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cnoy3iwx458wn"]
 
 [ext_resource type="Script" uid="uid://bbdpfd5ojyhsx" path="res://Game/View/scenes/cannons.gd" id="1_5s78e"]
-[ext_resource type="PackedScene" uid="uid://bof01ts7fiqg2" path="res://Game/View/Cannon/Tiers/T1.fbx" id="2_h1f4o"]
-[ext_resource type="PackedScene" uid="uid://dtt42cqg82uou" path="res://Game/View/Cannon/Tiers/T2.fbx" id="3_gficf"]
-[ext_resource type="PackedScene" uid="uid://cam08uqkwmybi" path="res://Game/View/Cannon/Tiers/T3.fbx" id="4_ab5he"]
-[ext_resource type="PackedScene" uid="uid://ci870dl0np3dj" path="res://Game/View/Cannon/Tiers/T4.fbx" id="5_w0qnp"]
+[ext_resource type="PackedScene" uid="uid://bof01ts7fiqg2" path="res://Game/View/Cannon/Models/T1.fbx" id="2_h1f4o"]
+[ext_resource type="PackedScene" uid="uid://dtt42cqg82uou" path="res://Game/View/Cannon/Models/T2.fbx" id="3_gficf"]
+[ext_resource type="PackedScene" uid="uid://cam08uqkwmybi" path="res://Game/View/Cannon/Models/T3.fbx" id="4_ab5he"]
+[ext_resource type="PackedScene" uid="uid://ci870dl0np3dj" path="res://Game/View/Cannon/Models/T4.fbx" id="5_w0qnp"]
 
 [node name="cannons" type="Node3D" unique_id=1517872366]
 script = ExtResource("1_5s78e")

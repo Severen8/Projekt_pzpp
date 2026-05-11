@@ -18,9 +18,7 @@ namespace MedievalTDIncremental.Game.View {
 
 		public override void _Ready() {
 			base._Ready();
-			this.CurrentModel = GetChild<Node3D>(0);
-			this.AnimationPlayer = CurrentModel.GetNode<AnimationPlayer>("AnimationPlayer");
-
+			this.SetCurrentModel(0);
 			this.AudioPlayer = new AudioStreamPlayer(); //todo: extract this to a dedicated class
 			this.AddChild(AudioPlayer);
 			ScrapeAudio();
@@ -39,7 +37,7 @@ namespace MedievalTDIncremental.Game.View {
 
 
 		public void PlayAnimation(
-			string animationKey, 
+			string animationKey,
 			bool soundOn = true, 
 			float speed = 1
 		) {
@@ -53,23 +51,10 @@ namespace MedievalTDIncremental.Game.View {
 				AudioPlayer.Stream = animation.AudioStream;
 				AudioPlayer.Play();
 			}
+			AnimationPlayer.Stop();
 			AnimationPlayer.PlaySection("Scene", animation.StartTime, animation.EndTime, -1, speed);
 		}
 
-
-
-		public void ResetAnimation() {
-			AnimationPlayer.PlaySection("Scene", -1, 0.0001);
-			AnimationPlayer.Stop();
-		}
-
-
-
-		public virtual void RotateTowards(Vector2 simPos, Vector2 target) {
-			Vector3 newRotation = Rotation;
-			newRotation.Y = simPos.AngleToPoint(target);
-			Rotation = newRotation;
-		}
 
 
 		protected void ScrapeAudio() {
@@ -80,6 +65,21 @@ namespace MedievalTDIncremental.Game.View {
 				string audioPath = directoryPath + "/Audio/" + animationName + ".mp3";
 				animation.LoadAudio(audioPath);
 			}
+		}
+
+
+
+		public void RotateTowards(Vector2 simPos, Vector2 target) {
+			Vector3 newRotation = Rotation;
+			newRotation.Y = simPos.AngleToPoint(target);
+			Rotation = newRotation;
+		}
+
+
+
+		protected void SetCurrentModel(int childIndex) {
+			this.CurrentModel = GetChild<Node3D>(childIndex);
+			this.AnimationPlayer = CurrentModel.GetNode<AnimationPlayer>("AnimationPlayer");
 		}
 	}
 }

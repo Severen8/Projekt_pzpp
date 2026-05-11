@@ -15,7 +15,9 @@ namespace MedievalTDIncremental.Game.View {
 
 		public HashSet<MeshInstance3D> Meshes { get; set; }
 
-		//todo: surely we can just do it once per tier? it's probably horrible to do it so many times
+		public IgnoredMeshList() { }
+
+
 		public void ScrapeMeshes(Node3D model, string tier = "") {
 			Meshes = [];
 			for(int i=0; i<MeshNames.Length; i++){
@@ -29,6 +31,15 @@ namespace MedievalTDIncremental.Game.View {
 			}
 		}
 
-		public IgnoredMeshList() { }
+
+
+		public void SetMeshLock(bool lockState) {
+			foreach(MeshInstance3D mesh in Meshes) {
+				mesh.TopLevel = lockState;
+			}
+		}
+
+
+
 	}
 }
