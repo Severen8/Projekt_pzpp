@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://doqe40d2uk7bl"
-path="res://.godot/imported/Golem.fbx-dedbd1f071427a13a9f94f05e54145b3.scn"
+path="res://.godot/imported/Model.fbx-63d2b306d35206597a230a9809388fa0.scn"
 
 [deps]
 
-source_file="res://Game/View/models/Golem.fbx"
-dest_files=["res://.godot/imported/Golem.fbx-dedbd1f071427a13a9f94f05e54145b3.scn"]
+source_file="res://Game/View/Golem/Model.fbx"
+dest_files=["res://.godot/imported/Model.fbx-63d2b306d35206597a230a9809388fa0.scn"]
 
 [params]
 

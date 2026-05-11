@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dc42fkuxfa0ku"]
+
+[ext_resource type="Script" uid="uid://bme5trtc7xss3" path="res://Game/View/AnimatableModel.cs" id="1_416j6"]
+[ext_resource type="PackedScene" uid="uid://doqe40d2uk7bl" path="res://Game/View/Golem/Model.fbx" id="2_fnxc3"]
+
+[node name="Golem" type="Node3D" unique_id=942159992]
+script = ExtResource("1_416j6")
+metadata/_custom_type_script = "uid://bme5trtc7xss3"
+
+[node name="Model" parent="." unique_id=800742075 instance=ExtResource("2_fnxc3")]
