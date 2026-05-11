@@ -25,16 +25,6 @@ namespace MedievalTDIncremental.Game.View {
 		}
 
 
-		//todo: remove temp test setup
-		public override void _Process(double delta) {
-			base._Process(delta);
-			if (Input.IsActionJustPressed("spawn_anim"))
-				this.PlayAnimation("spawn");
-			if(Input.IsActionJustPressed("rotate_left"))
-				this.RotateTowards(Vector2.Zero, Vector2.Left);
-		}
-
-
 
 		public void PlayAnimation(
 			string animationKey,

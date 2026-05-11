@@ -25,18 +25,6 @@ namespace MedievalTDIncremental.Game.View {
 			SetTier(1);
 		}
 
-
-
-		public override void _Process(double delta) {
-			base._Process(delta);
-			if (Input.IsActionJustPressed("shoot_anim")) {
-				PlayAnimation("shoot");
-			}
-			if (Input.IsActionJustPressed("reload_anim")) {
-				SetTier(Tier+1);
-			}
-		}
-
 		
 		protected void SetTier(int newTier) {
 			CurrentModel.Hide();
