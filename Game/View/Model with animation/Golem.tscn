@@ -4,10 +4,18 @@
 [ext_resource type="Script" uid="uid://bsu14b4li426i" path="res://Game/View/AudibleAnimation.cs" id="2_4ohcj"]
 [ext_resource type="PackedScene" uid="uid://doqe40d2uk7bl" path="res://Game/View/models/Golem.fbx" id="2_oq3gy"]
 
-[sub_resource type="Resource" id="Resource_oq3gy"]
+[sub_resource type="Resource" id="Resource_p7bdb"]
 script = ExtResource("2_4ohcj")
-AudioPath = "res://Game/View/sounds/golems/spawn.mp3"
-EndTime = 2.51
+AudioPath = "res://Game/View/sounds/golems/attack.mp3"
+StartTime = 8.285
+EndTime = 9.966
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_yu35w"]
+script = ExtResource("2_4ohcj")
+AudioPath = "res://Game/View/sounds/golems/death.mp3"
+StartTime = 10.803
+EndTime = 13.292
 metadata/_custom_type_script = "uid://bsu14b4li426i"
 
 [sub_resource type="Resource" id="Resource_4ohcj"]
@@ -24,18 +32,10 @@ StartTime = 5.786
 EndTime = 7.47
 metadata/_custom_type_script = "uid://bsu14b4li426i"
 
-[sub_resource type="Resource" id="Resource_p7bdb"]
+[sub_resource type="Resource" id="Resource_oq3gy"]
 script = ExtResource("2_4ohcj")
-AudioPath = "res://Game/View/sounds/golems/attack.mp3"
-StartTime = 8.285
-EndTime = 9.966
-metadata/_custom_type_script = "uid://bsu14b4li426i"
-
-[sub_resource type="Resource" id="Resource_yu35w"]
-script = ExtResource("2_4ohcj")
-AudioPath = "res://Game/View/sounds/golems/death.mp3"
-StartTime = 10.803
-EndTime = 13.292
+AudioPath = "res://Game/View/sounds/golems/spawn.mp3"
+EndTime = 2.51
 metadata/_custom_type_script = "uid://bsu14b4li426i"
 
 [node name="Golem" type="Node3D" unique_id=1495130973]
@@ -48,7 +48,5 @@ Animations = Dictionary[String, Object]({
 "spawn": SubResource("Resource_oq3gy")
 })
 metadata/_custom_type_script = "uid://bme5trtc7xss3"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=410435458]
 
 [node name="Model" parent="." unique_id=563181407 instance=ExtResource("2_oq3gy")]

@@ -1,0 +1,34 @@
+using Godot;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MedievalTDIncremental.Game.View {
+	[GlobalClass]
+	public partial class IgnoredMeshList: Resource {
+		[Export]
+		public string Prefix { get; set; }
+		[Export]
+		public string[] MeshNames { get; set; }
+
+		public HashSet<MeshInstance3D> Meshes { get; set; }
+
+		//todo: surely we can just do it once per tier? it's probably horrible to do it so many times
+		public void ScrapeMeshes(Node3D model, string tier = "") {
+			Meshes = [];
+			for(int i=0; i<MeshNames.Length; i++){
+				string meshPath = string.Concat(Prefix, tier, MeshNames[i]);
+				var mesh = model.GetNodeOrNull<MeshInstance3D>(meshPath);
+				if (mesh == null) {
+					GD.PrintErr($"Failed to fetch static mesh {model.GetPath().GetConcatenatedNames()}/{meshPath}");
+					return;
+				}
+				Meshes.Add(mesh);
+			}
+		}
+
+		public IgnoredMeshList() { }
+	}
+}
