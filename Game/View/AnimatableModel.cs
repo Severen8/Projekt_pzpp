@@ -10,13 +10,10 @@ namespace MedievalTDIncremental.Game.View {
 	public partial class AnimatableModel: Node3D {
 		[Export]
 		public Godot.Collections.Dictionary<string, AudibleAnimation> Animations { get; set; }
-		//deprecated
-		[Export]
-		public IgnoredMeshList IgnoredMeshes { get; set; }
 
-		Node3D CurrentModel { get; set; }
-		AnimationPlayer AnimationPlayer { get; set; }
-		AudioStreamPlayer AudioPlayer { get; set; }
+		protected Node3D CurrentModel { get; set; }
+		protected AnimationPlayer AnimationPlayer { get; set; }
+		protected AudioStreamPlayer AudioPlayer { get; set; }
 
 		
 
@@ -31,8 +28,6 @@ namespace MedievalTDIncremental.Game.View {
 			foreach(AudibleAnimation animation in Animations.Values) {
 				animation.LoadAudio();
 			}
-
-			IgnoredMeshes.ScrapeMeshes(CurrentModel);
 		}
 
 
@@ -63,27 +58,18 @@ namespace MedievalTDIncremental.Game.View {
 		}
 
 
-		public void Reset() {
+		public void ResetAnimation() {
 			AnimationPlayer.PlaySection("Scene", -1, 0.0001);
 			AnimationPlayer.Stop();
-			this.Rotation = Vector3.Zero;
 		}
 
 
-		public void RotateTowards(Vector2 simPos, Vector2 target) {
+		public virtual void RotateTowards(Vector2 simPos, Vector2 target) {
 			Vector3 newRotation = Rotation;
 			newRotation.Y = simPos.AngleToPoint(target);
 			Rotation = newRotation;
 
-			RevertStaticMeshRotation();
-		}
-
-		void RevertStaticMeshRotation() {
-			foreach (MeshInstance3D mesh in IgnoredMeshes.Meshes) {
-				Vector3 meshNewRotation = mesh.Rotation;
-				meshNewRotation.Y = -Rotation.Y;
-				mesh.Rotation = meshNewRotation;
-			}
+			
 		}
 	}
 }
