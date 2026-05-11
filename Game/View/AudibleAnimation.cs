@@ -18,10 +18,16 @@ namespace MedievalTDIncremental.Game.View {
 		[Export]
 		public double EndTime { get; set; }
 
-		public AudioStream Stream { get; set; }
+		public AudioStream AudioStream { get; private set; }
 
 		public AudibleAnimation() {
 
+		}
+
+		public void LoadAudio() {
+			if (FileAccess.FileExists(AudioPath)) {
+				AudioStream = ResourceLoader.Load<AudioStream>(AudioPath);
+			}
 		}
 	}
 }
