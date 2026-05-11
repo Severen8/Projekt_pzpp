@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ch3mb1m0eytk3"
-path="res://.godot/imported/death.mp3-830bfebc6fc9dd69345a75bb0a051f0c.mp3str"
+path="res://.godot/imported/death.mp3-5084783de6d8525b0b380f28259ada58.mp3str"
 
 [deps]
 
-source_file="res://sounds/golems/death.mp3"
-dest_files=["res://.godot/imported/death.mp3-830bfebc6fc9dd69345a75bb0a051f0c.mp3str"]
+source_file="res://Game/View/sounds/golems/death.mp3"
+dest_files=["res://.godot/imported/death.mp3-5084783de6d8525b0b380f28259ada58.mp3str"]
 
 [params]
 

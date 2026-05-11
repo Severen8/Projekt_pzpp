@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bn2ias2hsep8c"
-path="res://.godot/imported/ready.mp3-61d1798acdb82bbaa264bbf9518f6abf.mp3str"
+path="res://.godot/imported/ready.mp3-df3142a7eb34f8b5018adf3c2c51c0f4.mp3str"
 
 [deps]
 
-source_file="res://sounds/cannons/ready.mp3"
-dest_files=["res://.godot/imported/ready.mp3-61d1798acdb82bbaa264bbf9518f6abf.mp3str"]
+source_file="res://Game/View/sounds/cannons/ready.mp3"
+dest_files=["res://.godot/imported/ready.mp3-df3142a7eb34f8b5018adf3c2c51c0f4.mp3str"]
 
 [params]
 

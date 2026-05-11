@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bb0xnwgygyq17"
-path="res://.godot/imported/move.mp3-28cde8051c5dbc2723200b1e0016def6.mp3str"
+path="res://.godot/imported/move.mp3-81027948dabe1769a126690e7832bb21.mp3str"
 
 [deps]
 
-source_file="res://sounds/golems/move.mp3"
-dest_files=["res://.godot/imported/move.mp3-28cde8051c5dbc2723200b1e0016def6.mp3str"]
+source_file="res://Game/View/sounds/golems/move.mp3"
+dest_files=["res://.godot/imported/move.mp3-81027948dabe1769a126690e7832bb21.mp3str"]
 
 [params]
 

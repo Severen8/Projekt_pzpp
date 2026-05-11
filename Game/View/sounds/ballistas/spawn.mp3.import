@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cj1ami3il4wf1"
-path="res://.godot/imported/spawn.mp3-ffe8e960ac3afd2dfb8af9a186c23f77.mp3str"
+path="res://.godot/imported/spawn.mp3-c4e80156db1571e07e5f96000e0bfab7.mp3str"
 
 [deps]
 
-source_file="res://sounds/ballistas/spawn.mp3"
-dest_files=["res://.godot/imported/spawn.mp3-ffe8e960ac3afd2dfb8af9a186c23f77.mp3str"]
+source_file="res://Game/View/sounds/ballistas/spawn.mp3"
+dest_files=["res://.godot/imported/spawn.mp3-c4e80156db1571e07e5f96000e0bfab7.mp3str"]
 
 [params]
 

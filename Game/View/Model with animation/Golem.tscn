@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://fo5ij5fj6bi0"]
+
+[ext_resource type="Script" uid="uid://boihgyi0qd8sn" path="res://Game/View/AnimatableModel.gd" id="1_1cc3e"]
+[ext_resource type="Script" uid="uid://bsu14b4li426i" path="res://Game/View/AudibleAnimation.cs" id="2_4ohcj"]
+[ext_resource type="PackedScene" uid="uid://doqe40d2uk7bl" path="res://Game/View/models/Golem.fbx" id="2_oq3gy"]
+
+[sub_resource type="Resource" id="Resource_j46j8"]
+script = ExtResource("2_4ohcj")
+AudioPath = "res://Game/View/sounds/golems/attack.mp3"
+StartTime = 8.285
+EndTime = 9.966
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_1c6sy"]
+script = ExtResource("2_4ohcj")
+AudioPath = "res://Game/View/sounds/golems/death.mp3"
+StartTime = 10.803
+EndTime = 13.292
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_p7bdb"]
+script = ExtResource("2_4ohcj")
+AudioPath = "res://Game/View/sounds/golems/idle.mp3"
+StartTime = 3.283
+EndTime = 4.989
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_yu35w"]
+script = ExtResource("2_4ohcj")
+AudioPath = "res://Game/View/sounds/golems/move.mp3"
+StartTime = 5.786
+EndTime = 7.47
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_oy288"]
+script = ExtResource("2_4ohcj")
+AudioPath = "res://Game/View/sounds/golems/spawn.mp3"
+EndTime = 2.51
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[node name="Golem" type="Node3D" unique_id=211690861]
+script = ExtResource("1_1cc3e")
+animations = Dictionary[String, ExtResource("2_4ohcj")]({
+"attack": SubResource("Resource_j46j8"),
+"death": SubResource("Resource_1c6sy"),
+"idle": SubResource("Resource_p7bdb"),
+"move": SubResource("Resource_yu35w"),
+"spawn": SubResource("Resource_oy288")
+})
+metadata/_custom_type_script = "uid://boihgyi0qd8sn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=410435458]
+
+[node name="Model" parent="." unique_id=563181407 instance=ExtResource("2_oq3gy")]

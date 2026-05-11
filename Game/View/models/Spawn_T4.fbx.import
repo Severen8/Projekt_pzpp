@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bwqojivvcwiec"
-path="res://.godot/imported/Spawn_T4.fbx-23f8cee8d50f83cfe43c619ffe46328f.scn"
+path="res://.godot/imported/Spawn_T4.fbx-7a424c4b402e189e282687f78f5bda00.scn"
 
 [deps]
 
-source_file="res://models/Spawn_T4.fbx"
-dest_files=["res://.godot/imported/Spawn_T4.fbx-23f8cee8d50f83cfe43c619ffe46328f.scn"]
+source_file="res://Game/View/models/Spawn_T4.fbx"
+dest_files=["res://.godot/imported/Spawn_T4.fbx-7a424c4b402e189e282687f78f5bda00.scn"]
 
 [params]
 

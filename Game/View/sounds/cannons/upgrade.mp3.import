@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cm4l2bpmjqgh1"
-path="res://.godot/imported/upgrade.mp3-465886f3f087c64148e0dc633562c991.mp3str"
+path="res://.godot/imported/upgrade.mp3-b0898c44417b78baaa48155d2e8530a8.mp3str"
 
 [deps]
 
-source_file="res://sounds/cannons/upgrade.mp3"
-dest_files=["res://.godot/imported/upgrade.mp3-465886f3f087c64148e0dc633562c991.mp3str"]
+source_file="res://Game/View/sounds/cannons/upgrade.mp3"
+dest_files=["res://.godot/imported/upgrade.mp3-b0898c44417b78baaa48155d2e8530a8.mp3str"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dlnw1uut03lf1"
-path="res://.godot/imported/downgrade.mp3-67edaa0d8ed77433b059aa75cf07883e.mp3str"
+path="res://.godot/imported/downgrade.mp3-0b52509e2c53965402d10ffb745008ac.mp3str"
 
 [deps]
 
-source_file="res://sounds/ballistas/downgrade.mp3"
-dest_files=["res://.godot/imported/downgrade.mp3-67edaa0d8ed77433b059aa75cf07883e.mp3str"]
+source_file="res://Game/View/sounds/ballistas/downgrade.mp3"
+dest_files=["res://.godot/imported/downgrade.mp3-0b52509e2c53965402d10ffb745008ac.mp3str"]
 
 [params]
 
