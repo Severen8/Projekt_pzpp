@@ -10,18 +10,23 @@ namespace MedievalTDIncremental.Game.View {
 	[GlobalClass]
 	public partial class AudibleAnimation: Resource {
 		[Export]
-		public string AudioPath { get; set; }
-
-		[Export]
 		public double StartTime { get; set; }
 
 		[Export]
 		public double EndTime { get; set; }
 
-		public AudioStream Stream { get; set; }
+		public AudioStream AudioStream { get; private set; }
 
 		public AudibleAnimation() {
 
+		}
+
+		public void LoadAudio(string path) {
+			if (FileAccess.FileExists(path)) {
+				AudioStream = ResourceLoader.Load<AudioStream>(path);
+			} else {
+				GD.PushWarning($"Audio at {path} not found");
+			}
 		}
 	}
 }

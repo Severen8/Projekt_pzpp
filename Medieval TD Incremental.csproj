@@ -7,6 +7,5 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Game\UI\" />
-    <Folder Include="Game\View\" />
   </ItemGroup>
 </Project>
