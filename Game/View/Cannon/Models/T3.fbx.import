@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://doqe40d2uk7bl"
-path="res://.godot/imported/Model.fbx-63d2b306d35206597a230a9809388fa0.scn"
+uid="uid://cam08uqkwmybi"
+path="res://.godot/imported/T3.fbx-626329d132342914b520aa4a36ed8d31.scn"
 
 [deps]
 
-source_file="res://Game/View/Golem/Model.fbx"
-dest_files=["res://.godot/imported/Model.fbx-63d2b306d35206597a230a9809388fa0.scn"]
+source_file="res://Game/View/Cannon/Models/T3.fbx"
+dest_files=["res://.godot/imported/T3.fbx-626329d132342914b520aa4a36ed8d31.scn"]
 
 [params]
 

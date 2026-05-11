@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dtt42cqg82uou"
-path="res://.godot/imported/T2.fbx-fc91af0f7d3bd626f99014462e982190.scn"
+uid="uid://bof01ts7fiqg2"
+path="res://.godot/imported/T1.fbx-b6c39b3fa8670c5d93b365c4272a10a4.scn"
 
 [deps]
 
-source_file="res://Game/View/Cannon/Tiers/T2.fbx"
-dest_files=["res://.godot/imported/T2.fbx-fc91af0f7d3bd626f99014462e982190.scn"]
+source_file="res://Game/View/Cannon/Models/T1.fbx"
+dest_files=["res://.godot/imported/T1.fbx-b6c39b3fa8670c5d93b365c4272a10a4.scn"]
 
 [params]
 
