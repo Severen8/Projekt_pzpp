@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bjx07egowt58q"]
+
+[ext_resource type="Script" uid="uid://boihgyi0qd8sn" path="res://Game/View/AnimatableModel.gd" id="1_h4ci3"]
+
+[node name="AnimatableModel" type="Node3D" unique_id=211690861]
+script = ExtResource("1_h4ci3")
+metadata/_custom_type_script = "uid://boihgyi0qd8sn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=410435458]

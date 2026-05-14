@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cd6t2jh5r2hk3"]
+
+[ext_resource type="Script" uid="uid://d1ibtqt1bn7ji" path="res://Game/View/TowerModel.cs" id="1_rqjqc"]
+[ext_resource type="PackedScene" uid="uid://bof01ts7fiqg2" path="res://Game/Towers/Cannon/Models/T1.fbx" id="2_vdhdj"]
+[ext_resource type="Script" uid="uid://bu81ilfmy6oa4" path="res://Game/View/IgnoredMeshList.cs" id="2_win3k"]
+[ext_resource type="Script" uid="uid://bsu14b4li426i" path="res://Game/View/AudibleAnimation.cs" id="3_u8u2a"]
+[ext_resource type="PackedScene" uid="uid://dtt42cqg82uou" path="res://Game/Towers/Cannon/Models/T2.fbx" id="3_win3k"]
+[ext_resource type="PackedScene" uid="uid://cam08uqkwmybi" path="res://Game/Towers/Cannon/Models/T3.fbx" id="4_u8u2a"]
+[ext_resource type="PackedScene" uid="uid://ci870dl0np3dj" path="res://Game/Towers/Cannon/Models/T4.fbx" id="5_8wcfa"]
+
+[sub_resource type="Resource" id="Resource_u8u2a"]
+script = ExtResource("2_win3k")
+Prefix = "C"
+MeshNames = PackedStringArray("CannonTower_Base", "CannonTowerBase", "CannonTower_Rotator", "CogWheelBase", "CogWheelBase2", "CogWheelBase3", "CannonTower_Reinforcements", "CannonTowerBaseReinf", "CannonTower_Studs")
+metadata/_custom_type_script = "uid://bu81ilfmy6oa4"
+
+[sub_resource type="Resource" id="Resource_31q6q"]
+script = ExtResource("3_u8u2a")
+EndTime = 0.001
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_1y8t3"]
+script = ExtResource("3_u8u2a")
+StartTime = 2.445
+EndTime = 3.1
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_c01gb"]
+script = ExtResource("3_u8u2a")
+StartTime = 3.45
+EndTime = 3.708
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_8wcfa"]
+script = ExtResource("3_u8u2a")
+EndTime = 1.21
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[sub_resource type="Resource" id="Resource_bf725"]
+script = ExtResource("3_u8u2a")
+metadata/_custom_type_script = "uid://bsu14b4li426i"
+
+[node name="Cannon" type="Node3D" unique_id=264270068]
+script = ExtResource("1_rqjqc")
+IgnoredMeshes = SubResource("Resource_u8u2a")
+Animations = Dictionary[String, Object]({
+"downgrade": SubResource("Resource_31q6q"),
+"ready": SubResource("Resource_1y8t3"),
+"shoot": SubResource("Resource_c01gb"),
+"spawn": SubResource("Resource_8wcfa"),
+"upgrade": SubResource("Resource_bf725")
+})
+metadata/_custom_type_script = "uid://d1ibtqt1bn7ji"
+
+[node name="T1" parent="." unique_id=1965918973 instance=ExtResource("2_vdhdj")]
+
+[node name="T2" parent="." unique_id=1291659092 instance=ExtResource("3_win3k")]
+
+[node name="T3" parent="." unique_id=599997806 instance=ExtResource("4_u8u2a")]
+
+[node name="T4" parent="." unique_id=1935907852 instance=ExtResource("5_8wcfa")]
