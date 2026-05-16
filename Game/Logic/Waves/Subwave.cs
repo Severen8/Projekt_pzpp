@@ -1,5 +1,5 @@
 using Godot;
-using MedievalTDIncremental.Game.Logic.Enemies;
+using MedievalTDIncremental.Game.Enemies;
 using System;
 using System.Collections.Generic;
 using System.Linq;

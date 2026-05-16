@@ -24,7 +24,10 @@ namespace MedievalTDIncremental.Game.View {
 			ScrapeAudio();
 		}
 
-
+		public override void _Process(double delta) {
+			base._Process(delta);
+			PlayAnimation("spawn");
+		}
 
 		public void PlayAnimation(
 			string animationKey,
@@ -42,7 +45,7 @@ namespace MedievalTDIncremental.Game.View {
 				AudioPlayer.Stream = animation.AudioStream;
 				AudioPlayer.Play();
 			}
-			AnimationPlayer.PlaySection("Scene", animation.StartTime, animation.EndTime, -1, speed);
+			AnimationPlayer.PlaySection("Scene", animation.StartTime, animation.EndTime, -1, speed); //todo: looping
 		}
 
 

@@ -1,5 +1,5 @@
 using Godot;
-using MedievalTDIncremental.Game.Logic.Enemies;
+using MedievalTDIncremental.Game.Enemies;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,14 +17,14 @@ namespace MedievalTDIncremental.Game.Logic {
 		}
 
 		public void SpawnEnemy(string EnemyType) {
-			Enemy enemy = EnemySpawner.FromString(EnemyType);
+			CompositeEnemy enemy = EnemySpawner.FromString(EnemyType);
 			enemy.StartPathfinding(Path);
 			CallDeferred("add_child", enemy);
 			enemy.EnemyEscaped += OnEnemyEscaped;
 		}
 
 		void OnEnemyEscaped(Object s, EnemyEscapeArgs escapeArgs) {
-			Enemy sender = (Enemy) s;
+			CompositeEnemy sender = (CompositeEnemy) s;
 			sender.EnemyEscaped -= OnEnemyEscaped;
 			EnemyEscaped.Invoke(this, escapeArgs);
 			sender.QueueFree();

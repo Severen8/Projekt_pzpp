@@ -1,6 +1,6 @@
 using Godot;
 using MedievalTDIncremental.Game.Logic;
-using MedievalTDIncremental.Game.Logic.Enemies;
+using MedievalTDIncremental.Game.Enemies;
 using System;
 using System.Collections.Generic;
 

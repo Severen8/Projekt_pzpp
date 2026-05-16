@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedievalTDIncremental.Game.Logic.Enemies {
+namespace MedievalTDIncremental.Game.Enemies {
 	public static class EnemySpawner {
 		//todo: maybe move this into EnemyHandler?
-		private static readonly Dictionary<string, Func<Enemy>> StringToEnemy = new() {
-			{ "Enemy", () => Enemy.Load() }
+		private static readonly Dictionary<string, Func<CompositeEnemy>> StringToEnemy = new() {
+			
 		};
 
-		public static Enemy FromString(string EnemyType) {
+		public static CompositeEnemy FromString(string EnemyType) {
 			return StringToEnemy[EnemyType]();
 		}
 	}

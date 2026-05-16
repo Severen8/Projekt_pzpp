@@ -1,28 +1,27 @@
 using Godot;
+using MedievalTDIncremental.Game.View;
 using System;
 using System.Collections.Generic;
 
-namespace MedievalTDIncremental.Game.Logic.Enemies {
-	public partial class Enemy : AnimatableBody2D {
+namespace MedievalTDIncremental.Game.Enemies {
+	[GlobalClass]
+	public partial class CompositeEnemy : CompositeNode {
 		public event EventHandler<EnemyEscapeArgs> EnemyEscaped;
 		public event EventHandler EnemyKilled;
 
-		//todo: add more stats such as hp drained upon escaping, resource drops and such
-		//maybe a DTO resource? or maybe this can be one idk
-
-		private static readonly PackedScene PackedScene = ResourceLoader.Load<PackedScene>("res://Game/Logic/Enemies/Enemy.tscn");
-		
-		const float Speed = 20; //todo: make this into a static value, change per enemy type
-		public int Damage { get; private set; } = 10; 
+		//todo: add more stats such as resource drops
+		[ExportCategory("Enemy Stats")]
+		[Export]
+		public float Speed { get; set; } = 20;
+		[Export]
+		public int Damage { get; set; } = 10;
 
 		List<Vector2> Path { get; set; }
 		int PathIndex { get; set; }
 
-
-		public static Enemy Load() {
-			return PackedScene.Instantiate<Enemy>();
+		public override void _Ready() {
+			base._Ready();
 		}
-
 
 
 		public void StartPathfinding(List<Vector2> path) {
@@ -43,4 +42,5 @@ namespace MedievalTDIncremental.Game.Logic.Enemies {
 				PathIndex++;
 		}
 	}
+
 }
