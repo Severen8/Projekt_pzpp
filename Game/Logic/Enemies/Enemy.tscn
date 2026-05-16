@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d12rq5lxmx0mc"]
 
-[ext_resource type="Script" uid="uid://cb7nxxjsv1yoh" path="res://Game/Logic/Enemies/Enemy.cs" id="1_c5s1l"]
-[ext_resource type="Texture2D" uid="uid://bbxv3ykh2vphg" path="res://icon.svg" id="2_0ajlo"]
+[ext_resource type="Script" uid="uid://decw2pxe1mc1t" path="res://Game/Enemies/EnemySim.cs" id="1_c5s1l"]
+[ext_resource type="Texture2D" uid="uid://dw7lw84yd7cjh" path="res://icon.svg" id="2_0ajlo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrxxl"]
 size = Vector2(128, 127)
