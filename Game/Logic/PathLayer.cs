@@ -44,7 +44,8 @@ public partial class PathLayer : TileMapLayer
 		Vector2 TileOffset = new Vector2(this.TileSet.TileSize.X, this.TileSet.TileSize.Y) * 0.5f;
 		return this.Vertices
 			.Select(vert => 
-				Position + new Vector2(vert.X * this.TileSet.TileSize.X, vert.Y * this.TileSet.TileSize.Y) 
+				Position 
+				+ new Vector2(vert.X * this.TileSet.TileSize.X, vert.Y * this.TileSet.TileSize.Y) 
 				+ TileOffset)
 			.ToList();
 	}
