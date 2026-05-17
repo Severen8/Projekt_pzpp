@@ -51,8 +51,7 @@ namespace MedievalTDIncremental.Game.View {
 
 
 		protected void ScrapeAudio() {
-			int sceneNameIndex = SceneFilePath.RFind("/");
-			string directoryPath = SceneFilePath.Substring(0, sceneNameIndex);
+			string directoryPath = this.GetParent().SceneFilePath.GetBaseDir();
 			foreach (string animationName in Animations.Keys) {
 				var animation = Animations[animationName];
 				string audioPath = directoryPath + "/Audio/" + animationName + ".mp3";

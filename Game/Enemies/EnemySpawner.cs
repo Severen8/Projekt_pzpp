@@ -12,6 +12,7 @@ namespace MedievalTDIncremental.Game.Enemies {
 		private static readonly Dictionary<string, PackedScene> StringToEnemy;
 
 		static EnemySpawner() {
+			StringToEnemy = [];
 			AddNewEnemy("Golem");
 		}
 

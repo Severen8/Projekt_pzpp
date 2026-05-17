@@ -18,15 +18,24 @@ namespace MedievalTDIncremental.Game.Enemies {
 
 		List<Vector2> Path { get; set; }
 		int PathIndex { get; set; }
+		
 
 		public override void _Ready() {
 			base._Ready();
+			this.Ready -= MoveToPathStart;
 		}
 
 
 		public void StartPathfinding(List<Vector2> path) {
-			this.Position = path[0];
 			this.Path = path;
+			if (IsNodeReady()) {
+				MoveToPathStart();
+			} else
+				this.Ready += MoveToPathStart;
+		}
+
+		private void MoveToPathStart() {
+			this.Position = this.Path[0];
 		}
 
 
