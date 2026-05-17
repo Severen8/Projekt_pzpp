@@ -24,10 +24,6 @@ namespace MedievalTDIncremental.Game.View {
 			ScrapeAudio();
 		}
 
-		public override void _Process(double delta) {
-			base._Process(delta);
-			PlayAnimation("spawn");
-		}
 
 		public void PlayAnimation(
 			string animationKey,
@@ -60,11 +56,9 @@ namespace MedievalTDIncremental.Game.View {
 		}
 
 
-
-		public void RotateTowards(Vector2 simPos, Vector2 target) {
-			Vector3 newRotation = Rotation;
-			newRotation.Y = simPos.AngleToPoint(target);
-			Rotation = newRotation;
+		
+		public void SetRotation(float radians) {
+			this.Rotation = new Vector3(0, radians, 0);
 		}
 
 

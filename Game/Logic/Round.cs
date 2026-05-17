@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using MedievalTDIncremental.Game;
 
-public partial class Round : Node2D
+public partial class Round : Node
 {
 	public static Round Singleton { get; private set; }
 
