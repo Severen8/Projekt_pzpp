@@ -28,13 +28,18 @@ namespace MedievalTDIncremental.Game.Enemies {
 			base._Ready();
 			this.Pathfinder = new();
 			this.Pathfinder.ReachedEnd += (s, e) => this.EnemyEscaped(this);
+			this.Pathfinder.Turned += angle => this.Rotation = angle;
+			this.Rotation = Pathfinder.AngleToTarget;
 		}
+
 
 
 		public override void _PhysicsProcess(double delta) {
 			base._PhysicsProcess(delta);
-			if (IsMoving)
+			if (IsMoving) {
 				this.Position = Pathfinder.GetNextPos(delta * Speed);
+				Model.PlayAnimation("move");
+			}
 		}
 	}
 

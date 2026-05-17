@@ -52,10 +52,11 @@ script = ExtResource("5_oa27c")
 Subwaves = Array[Object]([SubResource("Resource_gpvum")])
 metadata/_custom_type_script = "uid://chapfbdi7o6uv"
 
-[node name="Round" type="Node2D" unique_id=2036050213]
+[node name="Round" type="Node" unique_id=980906161]
 script = ExtResource("1_xt5m0")
 
 [node name="PathLayer" type="TileMapLayer" parent="." unique_id=1343866586]
+visible = false
 tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ga5si")
 script = ExtResource("2_2gloe")

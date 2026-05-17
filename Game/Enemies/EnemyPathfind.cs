@@ -11,20 +11,25 @@ namespace MedievalTDIncremental.Game.Enemies {
 
 		public event EventHandler ReachedEnd;
 
-		public delegate void OnTurned(Vector2 newDirection);
+		public delegate void OnTurned(float newAngle);
 		public event OnTurned Turned;
 
-
+		public float AngleToTarget => CurrentPosition.DirectionTo(TargetVertex).Angle();
 		int PathIndex { get; set; }
 		Vector2 CurrentPosition { get; set; }
 		Vector2 TargetVertex => Path[PathIndex + 1];
 		//todo: potentially create a dedicated path class and move this there
 		bool PathHasVerticesRemaining => Path.Count > PathIndex + 2;
 
+
+
 		public EnemyPathfind() {
 			this.PathIndex = 0;
 			this.CurrentPosition = Path[0];
 		}
+
+
+
 
 		public Vector2 GetNextPos(double distanceMoved) {
 			Vector2 distanceToNextPoint = TargetVertex - CurrentPosition;
@@ -40,11 +45,12 @@ namespace MedievalTDIncremental.Game.Enemies {
 			}
 			return CurrentPosition;
 		}
+		
 
 
 		void FindNextVertex() {
 			this.PathIndex++;
-			Turned.Invoke(CurrentPosition.DirectionTo(TargetVertex));
+			Turned.Invoke(AngleToTarget);
 		}
 	}
 }

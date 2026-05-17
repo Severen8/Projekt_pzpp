@@ -16,6 +16,8 @@ namespace MedievalTDIncremental.Game.Logic {
 			CompositeEnemy enemy = EnemySpawner.FromString(EnemyType);
 			this.AddChild(enemy);
 			enemy.IsMoving = true;
+			enemy.Position = Round.Singleton.Path[0];
+			enemy.SetVisibilityMode(VisibilityMode.THREE_DIM);
 			enemy.EnemyEscaped += OnEnemyEscaped;
 		}
 
