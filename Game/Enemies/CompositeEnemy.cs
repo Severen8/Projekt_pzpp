@@ -6,8 +6,8 @@ using System.Collections.Generic;
 namespace MedievalTDIncremental.Game.Enemies {
 	[GlobalClass]
 	public partial class CompositeEnemy : CompositeNode {
-		public delegate void OnEnemyEscaped(int Damage);
-		public event OnEnemyEscaped EnemyEscaped;
+		public delegate void EnemyEscapedHandler(CompositeEnemy sender);
+		public event EnemyEscapedHandler EnemyEscaped;
 
 		public event EventHandler EnemyKilled;
 
@@ -27,7 +27,7 @@ namespace MedievalTDIncremental.Game.Enemies {
 		public override void _Ready() {
 			base._Ready();
 			this.Pathfinder = new();
-			this.Pathfinder.ReachedEnd += (s, e) => this.EnemyEscaped(Damage);
+			this.Pathfinder.ReachedEnd += (s, e) => this.EnemyEscaped(this);
 		}
 
 

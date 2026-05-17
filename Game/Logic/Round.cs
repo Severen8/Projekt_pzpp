@@ -23,7 +23,7 @@ public partial class Round : Node2D
 		Path = GetNode<PathLayer>("PathLayer").GetVertexPath();
 
 		this.EnemyHandler = GetNode<EnemyHandler>("EnemyHandler");
-		this.EnemyHandler.EnemyEscaped += OnEnemyEscaped;
+		this.EnemyHandler.EnemyDamagedPlayer += TakeDamage;
 
 		this.WaveHandler = GetNode<WaveHandler>("WaveHandler");
 		//todo: potentially make a dedicated method instead of a delegate if i need to do something first
@@ -33,8 +33,8 @@ public partial class Round : Node2D
 	}
 
 
-	void OnEnemyEscaped(Object s, EnemyEscapeArgs escapeArgs) {
-		Lives = Math.Max(0, Lives-escapeArgs.Damage);
+	public void TakeDamage(int Damage) {
+		Lives = Math.Max(0, Lives-Damage);
 		GD.Print("Lives remaining: " + Lives);
 		//todo: some kind of "You lost!" screen that pulls up the upgrade screen?
 		//use a bool debounce to make sure you don't accidentally spam it

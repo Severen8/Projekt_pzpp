@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace MedievalTDIncremental.Game.Logic {
 	public partial class EnemyHandler : Node {
-		public event EventHandler<EnemyEscapeArgs> EnemyEscaped;
+		public delegate void DamageTakenHandler(int damage);
+		public event DamageTakenHandler EnemyDamagedPlayer;
 
 		public void SpawnEnemy(string EnemyType) {
 			CompositeEnemy enemy = EnemySpawner.FromString(EnemyType);
@@ -18,10 +19,9 @@ namespace MedievalTDIncremental.Game.Logic {
 			enemy.EnemyEscaped += OnEnemyEscaped;
 		}
 
-		void OnEnemyEscaped(Object s, EnemyEscapeArgs escapeArgs) {
-			CompositeEnemy sender = (CompositeEnemy) s;
+		void OnEnemyEscaped(CompositeEnemy sender) {
 			sender.EnemyEscaped -= OnEnemyEscaped;
-			EnemyEscaped.Invoke(this, escapeArgs);
+			EnemyDamagedPlayer.Invoke(sender.Damage);
 			sender.QueueFree();
 		}
 	}
