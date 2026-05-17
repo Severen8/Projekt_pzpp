@@ -6,7 +6,9 @@ using System.Collections.Generic;
 namespace MedievalTDIncremental.Game.Enemies {
 	[GlobalClass]
 	public partial class CompositeEnemy : CompositeNode {
-		public event EventHandler<EnemyEscapeArgs> EnemyEscaped;
+		public delegate void OnEnemyEscaped(int Damage);
+		public event OnEnemyEscaped EnemyEscaped;
+
 		public event EventHandler EnemyKilled;
 
 		//todo: add more stats such as resource drops
@@ -16,39 +18,23 @@ namespace MedievalTDIncremental.Game.Enemies {
 		[Export]
 		public int Damage { get; set; } = 10;
 
-		List<Vector2> Path { get; set; }
-		int PathIndex { get; set; }
+		public bool IsMoving { get; set; }
+
+		EnemyPathfind Pathfinder { get; set; }
+		
 		
 
 		public override void _Ready() {
 			base._Ready();
-			this.Ready -= MoveToPathStart;
-		}
-
-
-		public void StartPathfinding(List<Vector2> path) {
-			this.Path = path;
-			if (IsNodeReady()) {
-				MoveToPathStart();
-			} else
-				this.Ready += MoveToPathStart;
-		}
-
-		private void MoveToPathStart() {
-			this.Position = this.Path[0];
+			this.Pathfinder = new();
+			this.Pathfinder.ReachedEnd += (s, e) => this.EnemyEscaped(Damage);
 		}
 
 
 		public override void _PhysicsProcess(double delta) {
 			base._PhysicsProcess(delta);
-			if (PathIndex >= Path.Count - 1) {
-				EnemyEscaped.Invoke(this, new() { Damage = this.Damage });
-				return;
-			}
-			Position = Position.MoveToward(Path[PathIndex + 1], Speed * (float) delta);
-
-			if (Position.IsEqualApprox(Path[PathIndex + 1]))
-				PathIndex++;
+			if (IsMoving)
+				this.Position = Pathfinder.GetNextPos(delta * Speed);
 		}
 	}
 

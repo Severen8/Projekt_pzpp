@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MedievalTDIncremental.Game.Logic {
-	public partial class EnemyHandler : Node2D {
+	public partial class EnemyHandler : Node {
 		public event EventHandler<EnemyEscapeArgs> EnemyEscaped;
-
-		List<Vector2> Path { get; set; }
-		public void SetPath(List<Vector2> path) {
-			this.Path = path;
-		}
 
 		public void SpawnEnemy(string EnemyType) {
 			CompositeEnemy enemy = EnemySpawner.FromString(EnemyType);
-			enemy.StartPathfinding(Path);
-			CallDeferred("add_child", enemy);
+			this.AddChild(enemy);
+			enemy.IsMoving = true;
 			enemy.EnemyEscaped += OnEnemyEscaped;
 		}
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnaqwt528cw56"]
 
-[ext_resource type="PackedScene" uid="uid://bndkg23i4f8hs" path="res://Game/Logic/logic.tscn" id="2_gmmwd"]
+[ext_resource type="PackedScene" uid="uid://bndkg23i4f8hs" path="res://Game/Logic/round.tscn" id="2_gmmwd"]
 
 [node name="Root" type="Node" unique_id=93183204]
 

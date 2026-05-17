@@ -3,25 +3,33 @@ using MedievalTDIncremental.Game.Logic;
 using MedievalTDIncremental.Game.Enemies;
 using System;
 using System.Collections.Generic;
+using MedievalTDIncremental.Game;
 
-public partial class Logic : Node2D
+public partial class Round : Node2D
 {
-	public List<Vector2> Path { get; set; }
-	public int Lives { get; set; } = 100; //todo: extract this to another class later if needed
+	public static Round Singleton { get; private set; }
+
+	public int Lives { get; private set; }
+	public List<Vector2> Path { get; private set; }
 
 	WaveHandler WaveHandler { get; set; }
 	EnemyHandler EnemyHandler { get; set; }
 	
 	public override void _Ready() {
+		if (Singleton != null)
+			Singleton.QueueFree();
+		Singleton = this;
+		Lives = 100;
 		Path = GetNode<PathLayer>("PathLayer").GetVertexPath();
+
 		this.EnemyHandler = GetNode<EnemyHandler>("EnemyHandler");
-		this.EnemyHandler.SetPath(Path);
 		this.EnemyHandler.EnemyEscaped += OnEnemyEscaped;
 
 		this.WaveHandler = GetNode<WaveHandler>("WaveHandler");
 		//todo: potentially make a dedicated method instead of a delegate if i need to do something first
-		this.WaveHandler.EnemySpawned += (s, e) => this.EnemyHandler.SpawnEnemy(e.EnemyType);
-		this.WaveHandler.CallDeferred("NextWave");
+		//also this sucks and is dangerous if we change the method name, maybe use reflection?
+		this.WaveHandler.EnemySpawned += (s, e) => EnemyHandler.CallDeferred("SpawnEnemy", e.EnemyType);
+		this.WaveHandler.CallDeferred("StartWave");
 	}
 
 
