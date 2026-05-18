@@ -44,9 +44,16 @@ script = ExtResource("1_xt5m0")
 
 [node name="PathLayer" parent="." unique_id=1226762570 instance=ExtResource("2_j47d2")]
 
+[node name="Instance3D" parent="PathLayer" index="1" unique_id=774875888]
+data = {
+"cells": PackedInt32Array()
+}
+
 [node name="WaveHandler" type="Node" parent="." unique_id=36720969]
 script = ExtResource("4_oa27c")
 Waves = Array[Object]([SubResource("Resource_4em3t"), SubResource("Resource_6hake")])
 
 [node name="EnemyHandler" type="Node" parent="." unique_id=1234856105]
 script = ExtResource("7_w2ixw")
+
+[editable path="PathLayer"]

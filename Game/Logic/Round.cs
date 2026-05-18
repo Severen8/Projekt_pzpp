@@ -4,6 +4,7 @@ using MedievalTDIncremental.Game.Enemies;
 using System;
 using System.Collections.Generic;
 using MedievalTDIncremental.Game;
+using MedievalTDIncremental.Game.Logic.PathLayer;
 
 public partial class Round : Node
 {
@@ -20,7 +21,7 @@ public partial class Round : Node
 			Singleton.QueueFree();
 		Singleton = this;
 		Lives = 100;
-		Path = GetNode<PathLayer2D>("PathLayer").GetVertexPath();
+		Path = GetNode<CompositePathLayer>("PathLayer").GetVertexPath();
 
 		this.EnemyHandler = GetNode<EnemyHandler>("EnemyHandler");
 		this.EnemyHandler.EnemyDamagedPlayer += TakeDamage;
