@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 
-public partial class PathLayer : TileMapLayer
+public partial class PathLayer2D : TileMapLayer
 {
 	List<Vector2I> OrderedNodes { get; set; }
 	List<Vector2I> Vertices { get; set; }

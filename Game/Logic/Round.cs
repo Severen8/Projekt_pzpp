@@ -20,7 +20,7 @@ public partial class Round : Node
 			Singleton.QueueFree();
 		Singleton = this;
 		Lives = 100;
-		Path = GetNode<PathLayer>("PathLayer").GetVertexPath();
+		Path = GetNode<PathLayer2D>("PathLayer").GetVertexPath();
 
 		this.EnemyHandler = GetNode<EnemyHandler>("EnemyHandler");
 		this.EnemyHandler.EnemyDamagedPlayer += TakeDamage;

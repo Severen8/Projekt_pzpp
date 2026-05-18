@@ -1,24 +1,11 @@
-[gd_scene format=4 uid="uid://bndkg23i4f8hs"]
+[gd_scene format=3 uid="uid://bndkg23i4f8hs"]
 
 [ext_resource type="Script" uid="uid://t07y40sn1mit" path="res://Game/Logic/Round.cs" id="1_xt5m0"]
-[ext_resource type="Script" uid="uid://cp4q1hgwlnnci" path="res://Game/Logic/PathLayer.cs" id="2_2gloe"]
-[ext_resource type="Texture2D" uid="uid://3fkqwl8gm8mf" path="res://Untitled.png" id="2_t85uc"]
+[ext_resource type="PackedScene" uid="uid://dvcjxpgeb5iyt" path="res://Game/Logic/path_layer.tscn" id="2_j47d2"]
 [ext_resource type="Script" uid="uid://bnfw3pmp3qbrq" path="res://Game/Logic/WaveHandler.cs" id="4_oa27c"]
 [ext_resource type="Script" uid="uid://ccfmfwbqn47ra" path="res://Game/Logic/Waves/Subwave.cs" id="5_f0804"]
 [ext_resource type="Script" uid="uid://chapfbdi7o6uv" path="res://Game/Logic/Waves/Wave.cs" id="5_oa27c"]
 [ext_resource type="Script" uid="uid://bqd5wlvuyacl8" path="res://Game/Logic/EnemyHandler.cs" id="7_w2ixw"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ga5si"]
-texture = ExtResource("2_t85uc")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ga5si"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_ga5si")
 
 [sub_resource type="Resource" id="Resource_788ox"]
 script = ExtResource("5_f0804")
@@ -55,10 +42,7 @@ metadata/_custom_type_script = "uid://chapfbdi7o6uv"
 [node name="Round" type="Node" unique_id=980906161]
 script = ExtResource("1_xt5m0")
 
-[node name="PathLayer" type="TileMapLayer" parent="." unique_id=1343866586]
-tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_ga5si")
-script = ExtResource("2_2gloe")
+[node name="PathLayer" parent="." unique_id=1226762570 instance=ExtResource("2_j47d2")]
 
 [node name="WaveHandler" type="Node" parent="." unique_id=36720969]
 script = ExtResource("4_oa27c")
