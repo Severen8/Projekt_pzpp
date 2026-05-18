@@ -13,9 +13,12 @@ namespace MedievalTDIncremental.Game {
 		THREE_DIM
 	}
 
-	public partial class CompositeNode: Node {
-		protected Node2D Simulated { get; set; }
-		protected AnimatableModel Model { get; set; }
+	public abstract partial class CompositeNode<TNode2D, TNode3D>:Node
+		where TNode2D: Node2D
+		where TNode3D: Node3D
+	{
+		protected TNode2D Simulated { get; set; }
+		protected TNode3D Model { get; set; }
 
 		public Vector2 Position {
 			get => Simulated.Position;
@@ -44,8 +47,8 @@ namespace MedievalTDIncremental.Game {
 
 		public override void _Ready() {
 			base._Ready();
-			Simulated = GetNode<Node2D>("Simulated");
-			Model = GetNode<AnimatableModel>("Model");
+			Simulated = GetNode<TNode2D>("Simulated");
+			Model = GetNode<TNode3D>("Model");
 		}
 	}
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MedievalTDIncremental.Game.Enemies {
 	[GlobalClass]
-	public partial class CompositeEnemy : CompositeNode {
+	public partial class CompositeEnemy : CompositeNode<EnemySim, AnimatableModel> {
 		public delegate void EnemyEscapedHandler(CompositeEnemy sender);
 		public event EnemyEscapedHandler EnemyEscaped;
 
