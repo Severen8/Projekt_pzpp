@@ -14,22 +14,24 @@ namespace MedievalTDIncremental.Game {
 	}
 
 	public partial class CompositeNode: Node {
-		protected EnemySim Simulated { get; set; }
+		protected Node2D Simulated { get; set; }
 		protected AnimatableModel Model { get; set; }
 
 		public Vector2 Position {
 			get => Simulated.Position;
 			set {
 				this.Simulated.Position = value;
-				this.Model.Position = new Vector3(-value.X, 0, value.Y)/32; //potential issue with scaling
+				this.Model.Position = new Vector3(value.X, 0, value.Y)/32; //potential issue with scaling
 			}
 		}
 
-		public float Rotation {
-			get => Simulated.Rotation;
+		private Vector2 _direction;
+		public Vector2 Direction {
+			get => _direction;
 			set {
-				Simulated.Rotation = value;
-				Model.SetRotation(value);
+				_direction = value;
+				Simulated.Rotation = value.Angle();
+				Model.Basis = Basis.LookingAt(new(value.X, 0, value.Y));
 			}
 		}
 
@@ -42,7 +44,7 @@ namespace MedievalTDIncremental.Game {
 
 		public override void _Ready() {
 			base._Ready();
-			Simulated = GetNode<EnemySim>("Simulated");
+			Simulated = GetNode<Node2D>("Simulated");
 			Model = GetNode<AnimatableModel>("Model");
 		}
 	}
