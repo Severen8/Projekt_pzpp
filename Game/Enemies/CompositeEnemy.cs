@@ -38,7 +38,7 @@ namespace MedievalTDIncremental.Game.Enemies {
 			base._PhysicsProcess(delta);
 			if (IsMoving) {
 				this.Position = Pathfinder.GetNextPos(delta * Speed);
-				Model.PlayAnimation("move");
+				Instance3D.PlayAnimation("move");
 			}
 		}
 	}
