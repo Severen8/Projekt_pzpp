@@ -43,7 +43,7 @@ size = Vector2(128, 127)
 script = ExtResource("1_j2ym0")
 metadata/_custom_type_script = "uid://fw6j70ly8o36"
 
-[node name="Model" type="Node3D" parent="." unique_id=942159992]
+[node name="Instance3D" type="Node3D" parent="." unique_id=942159992]
 script = ExtResource("1_416j6")
 Animations = Dictionary[String, Object]({
 "attack": SubResource("Resource_01tfe"),
@@ -54,17 +54,17 @@ Animations = Dictionary[String, Object]({
 })
 metadata/_custom_type_script = "uid://bme5trtc7xss3"
 
-[node name="Model" parent="Model" unique_id=275170432 instance=ExtResource("2_fnxc3")]
+[node name="Model" parent="Instance3D" unique_id=275170432 instance=ExtResource("2_fnxc3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Simulated" type="AnimatableBody2D" parent="." unique_id=1624895326]
+[node name="Instance2D" type="AnimatableBody2D" parent="." unique_id=1624895326]
 script = ExtResource("5_4jn06")
 metadata/_custom_type_script = "uid://decw2pxe1mc1t"
 
-[node name="Sprite2D" type="Sprite2D" parent="Simulated" unique_id=1399965901]
+[node name="Sprite2D" type="Sprite2D" parent="Instance2D" unique_id=1399965901]
 texture = ExtResource("6_r8fe0")
 
-[node name="Area2D" type="Area2D" parent="Simulated" unique_id=1444046822]
+[node name="Area2D" type="Area2D" parent="Instance2D" unique_id=1444046822]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Simulated/Area2D" unique_id=1363700585]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instance2D/Area2D" unique_id=1363700585]
 shape = SubResource("RectangleShape2D_mwvq0")

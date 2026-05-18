@@ -17,14 +17,14 @@ namespace MedievalTDIncremental.Game {
 		where TNode2D: Node2D
 		where TNode3D: Node3D
 	{
-		protected TNode2D Simulated { get; set; }
-		protected TNode3D Model { get; set; }
+		protected TNode2D Instance2D { get; set; }
+		protected TNode3D Instance3D { get; set; }
 
 		public Vector2 Position {
-			get => Simulated.Position;
+			get => Instance2D.Position;
 			set {
-				this.Simulated.Position = value;
-				this.Model.Position = new Vector3(value.X, 0, value.Y)/32; //potential issue with scaling
+				this.Instance2D.Position = value;
+				this.Instance3D.Position = new Vector3(value.X, 0, value.Y)/32; //potential issue with scaling
 			}
 		}
 
@@ -33,22 +33,22 @@ namespace MedievalTDIncremental.Game {
 			get => _direction;
 			set {
 				_direction = value;
-				Simulated.Rotation = value.Angle();
-				Model.Basis = Basis.LookingAt(new(value.X, 0, value.Y));
+				Instance2D.Rotation = value.Angle();
+				Instance3D.Basis = Basis.LookingAt(new(value.X, 0, value.Y));
 			}
 		}
 
 		//todo: change this to use a global settings file instead
 		public void SetVisibilityMode(VisibilityMode mode) {
 			bool isTwoDim = mode == VisibilityMode.TWO_DIM;
-			Simulated.Visible = isTwoDim;
-			Model.Visible = !isTwoDim;
+			Instance2D.Visible = isTwoDim;
+			Instance3D.Visible = !isTwoDim;
 		}
 
 		public override void _Ready() {
 			base._Ready();
-			Simulated = GetNode<TNode2D>("Simulated");
-			Model = GetNode<TNode3D>("Model");
+			Instance2D = GetNode<TNode2D>("Instance2D");
+			Instance3D = GetNode<TNode3D>("Instance3D");
 		}
 	}
 }
