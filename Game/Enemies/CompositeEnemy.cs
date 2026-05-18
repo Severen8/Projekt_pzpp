@@ -28,8 +28,8 @@ namespace MedievalTDIncremental.Game.Enemies {
 			base._Ready();
 			this.Pathfinder = new();
 			this.Pathfinder.ReachedEnd += (s, e) => this.EnemyEscaped(this);
-			this.Pathfinder.Turned += angle => this.Rotation = angle;
-			this.Rotation = Pathfinder.AngleToTarget;
+			this.Pathfinder.Turned += direction => this.Direction = direction;
+			this.Direction = Pathfinder.DirectionToTarget;
 		}
 
 
