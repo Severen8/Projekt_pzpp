@@ -49,6 +49,7 @@ namespace MedievalTDIncremental.Game {
 			base._Ready();
 			Instance2D = GetNode<TNode2D>("Instance2D");
 			Instance3D = GetNode<TNode3D>("Instance3D");
+			this.SetVisibilityMode(Round.Singleton.VisMode);
 		}
 	}
 }

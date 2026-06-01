@@ -12,15 +12,19 @@ public partial class Round : Node
 
 	public int Lives { get; private set; }
 	public List<Vector2> Path { get; private set; }
+	public VisibilityMode VisMode { get; private set; } = VisibilityMode.TWO_DIM;
 
 	WaveHandler WaveHandler { get; set; }
 	EnemyHandler EnemyHandler { get; set; }
-	
-	public override void _Ready() {
+
+	public override void _EnterTree() {
 		if (Singleton != null)
 			Singleton.QueueFree();
 		Singleton = this;
 		Lives = 100;
+	}
+
+	public override void _Ready() {
 		Path = GetNode<CompositePathLayer>("PathLayer").GetVertexPath();
 
 		this.EnemyHandler = GetNode<EnemyHandler>("EnemyHandler");

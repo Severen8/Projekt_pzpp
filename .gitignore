@@ -445,3 +445,4 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/.github
