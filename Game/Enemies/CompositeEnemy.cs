@@ -17,6 +17,8 @@ namespace MedievalTDIncremental.Game.Enemies {
 		public float Speed { get; set; } = 20;
 		[Export]
 		public int Damage { get; set; } = 10;
+		[Export]
+		public float Health { get; set; } = 100;
 
 		public bool IsMoving { get; set; }
 

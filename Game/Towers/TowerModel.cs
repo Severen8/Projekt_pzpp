@@ -1,11 +1,12 @@
 using Godot;
+using MedievalTDIncremental.Game.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedievalTDIncremental.Game.View {
+namespace MedievalTDIncremental.Game.Towers {
 	[GlobalClass]
 	public partial class TowerModel: AnimatableModel {
 		[Export]
