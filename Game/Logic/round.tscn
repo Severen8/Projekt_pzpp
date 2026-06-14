@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bndkg23i4f8hs"]
+
+[ext_resource type="Script" uid="uid://t07y40sn1mit" path="res://Game/Logic/Round.cs" id="1_xt5m0"]
+[ext_resource type="PackedScene" uid="uid://dvcjxpgeb5iyt" path="res://Game/Logic/path_layer.tscn" id="2_j47d2"]
+[ext_resource type="Script" uid="uid://bnfw3pmp3qbrq" path="res://Game/Logic/WaveHandler.cs" id="4_j47d2"]
+[ext_resource type="Script" uid="uid://ccfmfwbqn47ra" path="res://Game/Logic/Waves/Subwave.cs" id="5_xt5m0"]
+[ext_resource type="Script" uid="uid://chapfbdi7o6uv" path="res://Game/Logic/Waves/Wave.cs" id="6_t3naw"]
+[ext_resource type="Script" uid="uid://bqd5wlvuyacl8" path="res://Game/Logic/EnemyHandler.cs" id="7_w2ixw"]
+
+[sub_resource type="Resource" id="Resource_hc0mv"]
+script = ExtResource("5_xt5m0")
+EnemyType = "Golem"
+EnemyCount = 4
+StartDelay = 1.0
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_5pfrj"]
+script = ExtResource("6_t3naw")
+Subwaves = Array[Object]([SubResource("Resource_hc0mv")])
+metadata/_custom_type_script = "uid://chapfbdi7o6uv"
+
+[sub_resource type="Resource" id="Resource_rxdkk"]
+script = ExtResource("5_xt5m0")
+EnemyType = "Golem"
+EnemyCount = 5
+BetweenDelay = 0.4
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_itbp5"]
+script = ExtResource("5_xt5m0")
+EnemyType = "Golem"
+StartDelay = 3.0
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_y3u3y"]
+script = ExtResource("6_t3naw")
+Subwaves = Array[Object]([SubResource("Resource_rxdkk"), SubResource("Resource_itbp5")])
+metadata/_custom_type_script = "uid://chapfbdi7o6uv"
+
+[sub_resource type="Resource" id="Resource_sh6fp"]
+script = ExtResource("5_xt5m0")
+EnemyType = "Golem"
+EnemyCount = 10
+BetweenDelay = 0.2
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_ehr7v"]
+script = ExtResource("6_t3naw")
+Subwaves = Array[Object]([SubResource("Resource_sh6fp")])
+metadata/_custom_type_script = "uid://chapfbdi7o6uv"
+
+[node name="Round" type="Node" unique_id=980906161]
+script = ExtResource("1_xt5m0")
+
+[node name="EnemyHandler" type="Node" parent="." unique_id=1234856105]
+script = ExtResource("7_w2ixw")
+
+[node name="PathLayer" parent="." unique_id=1226762570 instance=ExtResource("2_j47d2")]
+
+[node name="Instance2D" parent="PathLayer" index="0" unique_id=1079913405]
+z_index = -1
+
+[node name="Instance3D" parent="PathLayer" index="1" unique_id=774875888]
+data = {
+"cells": PackedInt32Array()
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1421203119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1003.87146, 1077.2738, 11.193734)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+light_size = 1.0
+omni_range = 4096.0
+omni_attenuation = 0.2
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=333473252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1003.871, 1077.274, 11.194)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+light_size = 1.0
+omni_range = 4096.0
+omni_attenuation = 0.5
+
+[node name="WaveHandler" type="Node" parent="." unique_id=127260335]
+script = ExtResource("4_j47d2")
+Waves = Array[Object]([SubResource("Resource_5pfrj"), SubResource("Resource_y3u3y"), SubResource("Resource_ehr7v")])
+
+[editable path="PathLayer"]

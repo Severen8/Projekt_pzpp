@@ -1,5 +1,5 @@
 using Godot;
-using MedievalTDIncremental.Game.Logic.Enemies;
+using MedievalTDIncremental.Game.Enemies;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,26 +8,37 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MedievalTDIncremental.Game.Logic {
-	public partial class EnemyHandler : Node2D {
-		public event EventHandler<EnemyEscapeArgs> EnemyEscaped;
-
-		List<Vector2> Path { get; set; }
-		public void SetPath(List<Vector2> path) {
-			this.Path = path;
-		}
+	public partial class EnemyHandler : Node {
+		public delegate void DamageTakenHandler(int damage);
+		public event DamageTakenHandler EnemyDamagedPlayer;
 
 		public void SpawnEnemy(string EnemyType) {
-			Enemy enemy = EnemySpawner.FromString(EnemyType);
-			enemy.StartPathfinding(Path);
-			CallDeferred("add_child", enemy);
+			CompositeEnemy enemy = EnemySpawner.FromString(EnemyType);
+			this.AddChild(enemy);
+			enemy.IsMoving = true;
+			enemy.Position = Round.Singleton.Path[0];
 			enemy.EnemyEscaped += OnEnemyEscaped;
+			enemy.EnemyKilled += OnEnemyKilled;
 		}
 
-		void OnEnemyEscaped(Object s, EnemyEscapeArgs escapeArgs) {
-			Enemy sender = (Enemy) s;
+		void OnEnemyEscaped(CompositeEnemy sender) {
 			sender.EnemyEscaped -= OnEnemyEscaped;
-			EnemyEscaped.Invoke(this, escapeArgs);
+			EnemyDamagedPlayer.Invoke(sender.Damage);
 			sender.QueueFree();
+		}
+
+		void OnEnemyKilled(CompositeEnemy sender) {
+			var despawnTimer = new Timer();
+			AddChild(despawnTimer);
+			despawnTimer.Timeout += () => DespawnEnemy(sender, despawnTimer);
+			despawnTimer.Start(2);
+		}
+
+		void DespawnEnemy(CompositeEnemy enemy, Timer despawnTimer) {
+			enemy.QueueFree();
+			despawnTimer.QueueFree();
+			this.RemoveChild(enemy);
+			this.RemoveChild(despawnTimer);
 		}
 	}
 }
