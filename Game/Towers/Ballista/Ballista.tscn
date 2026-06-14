@@ -1,18 +1,26 @@
 [gd_scene format=3 uid="uid://c5ca1pom8ad5c"]
 
 [ext_resource type="Script" uid="uid://cni8kigp05qhh" path="res://Game/Towers/TowerModel.cs" id="1_3d0ga"]
-[ext_resource type="Script" uid="uid://bu81ilfmy6oa4" path="res://Game/View/IgnoredMeshList.cs" id="2_3d0ga"]
+[ext_resource type="Script" uid="uid://d1vevnqq4p3g2" path="res://Game/Towers/CompositeTower.cs" id="1_dmn2s"]
+[ext_resource type="Script" uid="uid://by1u5vkdg23hq" path="res://Game/Towers/IgnoredMeshList.cs" id="2_3d0ga"]
+[ext_resource type="Script" uid="uid://b7g1i4ebxxeg1" path="res://Game/Towers/TierData.cs" id="2_dmn2s"]
 [ext_resource type="Script" uid="uid://bsu14b4li426i" path="res://Game/View/AudibleAnimation.cs" id="3_63xby"]
 [ext_resource type="PackedScene" uid="uid://cyrsyjgaqerkx" path="res://Game/Towers/Ballista/Models/T1.fbx" id="4_2pgqd"]
-[ext_resource type="PackedScene" uid="uid://cam0cohywutpy" path="res://Game/Towers/Ballista/Models/T2.fbx" id="5_svuq3"]
-[ext_resource type="PackedScene" uid="uid://cwv3q2a1ofxfo" path="res://Game/Towers/Ballista/Models/T3.fbx" id="6_j1c2d"]
-[ext_resource type="PackedScene" uid="uid://bwqojivvcwiec" path="res://Game/Towers/Ballista/Models/T4.fbx" id="7_hg1ei"]
+[ext_resource type="Script" uid="uid://g4pbol0rkkb5" path="res://Game/Towers/TowerSim.cs" id="6_3d0ga"]
+[ext_resource type="Texture2D" uid="uid://c0t0th120snvs" path="res://Game/Towers/Ballista/Sprites/T1.png" id="7_3d0ga"]
+
+[sub_resource type="Resource" id="Resource_lxfk6"]
+script = ExtResource("2_dmn2s")
+TierLevel = 1
+Damage = 10.0
+Range = 10.0
+Cooldown = 1.0
+metadata/_custom_type_script = "uid://b7g1i4ebxxeg1"
 
 [sub_resource type="Resource" id="Resource_dmn2s"]
 script = ExtResource("2_3d0ga")
 Prefix = "T"
 MeshNames = PackedStringArray("PlatformBase", "TowerBase", "TowerFoot", "Reinforcements")
-metadata/_custom_type_script = "uid://bu81ilfmy6oa4"
 
 [sub_resource type="Resource" id="Resource_j1c2d"]
 script = ExtResource("3_63xby")
@@ -40,7 +48,12 @@ metadata/_custom_type_script = "uid://bsu14b4li426i"
 script = ExtResource("3_63xby")
 metadata/_custom_type_script = "uid://bsu14b4li426i"
 
-[node name="Ballista" type="Node" unique_id=488814211]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dmn2s"]
+
+[node name="Ballista" type="Node" unique_id=313285885]
+script = ExtResource("1_dmn2s")
+Tiers = Array[Object]([SubResource("Resource_lxfk6")])
+metadata/_custom_type_script = "uid://d1vevnqq4p3g2"
 
 [node name="Instance3D" type="Node3D" parent="." unique_id=678882501]
 script = ExtResource("1_3d0ga")
@@ -53,10 +66,18 @@ Animations = Dictionary[String, Object]({
 "upgrade": SubResource("Resource_svuq3")
 })
 
-[node name="T1" parent="Instance3D" unique_id=1106301076 instance=ExtResource("4_2pgqd")]
+[node name="Model" parent="Instance3D" unique_id=1106301076 instance=ExtResource("4_2pgqd")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="T2" parent="Instance3D" unique_id=1826916726 instance=ExtResource("5_svuq3")]
+[node name="Instance2D" type="Node2D" parent="." unique_id=2067000891]
+script = ExtResource("6_3d0ga")
+metadata/_custom_type_script = "uid://g4pbol0rkkb5"
 
-[node name="T3" parent="Instance3D" unique_id=210411843 instance=ExtResource("6_j1c2d")]
+[node name="Sprite2D" type="Sprite2D" parent="Instance2D" unique_id=494294445]
+texture = ExtResource("7_3d0ga")
 
-[node name="T4" parent="Instance3D" unique_id=842333002 instance=ExtResource("7_hg1ei")]
+[node name="Area2D" type="Area2D" parent="Instance2D" unique_id=21132728]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instance2D/Area2D" unique_id=1603394552]
+shape = SubResource("CircleShape2D_dmn2s")

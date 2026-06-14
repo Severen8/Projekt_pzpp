@@ -9,6 +9,8 @@ namespace MedievalTDIncremental.Game.Towers;
 [GlobalClass]
 public partial class TierData: Resource{
 	[Export]
+	public int TierLevel { get; set; }
+	[Export]
 	public float Cost { get; set; }
 	[Export]
 	public float Damage { get; set; }
@@ -19,13 +21,13 @@ public partial class TierData: Resource{
 
 	public TierData() { }
 
-	public PackedScene GetModel(int tierIndex) {
-		string path = this.ResourcePath.GetBaseDir() + "/Models/T" + tierIndex + ".fbx";
+	public PackedScene GetModel() {
+		string path = this.ResourcePath.GetBaseDir() + "/Models/T" + TierLevel + ".fbx";
 		return ResourceLoader.Load<PackedScene>(path);
 	}
 
-	public Image GetSprite(int tierIndex) {
-		string path = this.ResourcePath.GetBaseDir() + "/Sprites/T" + tierIndex + ".png";
+	public Image GetSprite() {
+		string path = this.ResourcePath.GetBaseDir() + "/Sprites/T" + TierLevel + ".png";
 		return Image.LoadFromFile(path);
 	}
 }

@@ -65,6 +65,8 @@ metadata/_custom_type_script = "uid://decw2pxe1mc1t"
 texture = ExtResource("6_r8fe0")
 
 [node name="Area2D" type="Area2D" parent="Instance2D" unique_id=1444046822]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Instance2D/Area2D" unique_id=1363700585]
 shape = SubResource("RectangleShape2D_mwvq0")

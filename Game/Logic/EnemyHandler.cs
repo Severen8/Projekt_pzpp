@@ -18,12 +18,27 @@ namespace MedievalTDIncremental.Game.Logic {
 			enemy.IsMoving = true;
 			enemy.Position = Round.Singleton.Path[0];
 			enemy.EnemyEscaped += OnEnemyEscaped;
+			enemy.EnemyKilled += OnEnemyKilled;
 		}
 
 		void OnEnemyEscaped(CompositeEnemy sender) {
 			sender.EnemyEscaped -= OnEnemyEscaped;
 			EnemyDamagedPlayer.Invoke(sender.Damage);
 			sender.QueueFree();
+		}
+
+		void OnEnemyKilled(CompositeEnemy sender) {
+			var despawnTimer = new Timer();
+			AddChild(despawnTimer);
+			despawnTimer.Timeout += () => DespawnEnemy(sender, despawnTimer);
+			despawnTimer.Start(2);
+		}
+
+		void DespawnEnemy(CompositeEnemy enemy, Timer despawnTimer) {
+			enemy.QueueFree();
+			despawnTimer.QueueFree();
+			this.RemoveChild(enemy);
+			this.RemoveChild(despawnTimer);
 		}
 	}
 }

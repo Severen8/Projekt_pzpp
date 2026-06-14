@@ -29,6 +29,7 @@ public partial class IgnoredMeshList: Resource {
 			}
 			Meshes.Add(mesh);
 		}
+		GD.Print(Meshes);
 	}
 
 

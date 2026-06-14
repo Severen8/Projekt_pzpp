@@ -18,7 +18,7 @@ namespace MedievalTDIncremental.Game.View {
 
 		public override void _Ready() {
 			base._Ready();
-			this.SetCurrentModel(0);
+			UpdateModelCache(GetNode<Node3D>("Model"));
 			this.AudioPlayer = new AudioStreamPlayer(); //todo: extract this to a dedicated class
 			this.AddChild(AudioPlayer, false, InternalMode.Front);
 			ScrapeAudio();
@@ -62,9 +62,12 @@ namespace MedievalTDIncremental.Game.View {
 		}
 
 
-
-		protected void SetCurrentModel(int childIndex) {
-			this.CurrentModel = GetChild<Node3D>(childIndex);
+		protected void UpdateModelCache(Node3D newModel) {
+			if(CurrentModel != null) {
+				this.RemoveChild(CurrentModel);
+				CurrentModel.QueueFree();
+			}
+			this.CurrentModel = newModel;
 			this.AnimationPlayer = CurrentModel.GetNode<AnimationPlayer>("AnimationPlayer");
 		}
 	}

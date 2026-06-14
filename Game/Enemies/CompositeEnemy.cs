@@ -6,10 +6,10 @@ using System.Collections.Generic;
 namespace MedievalTDIncremental.Game.Enemies {
 	[GlobalClass]
 	public partial class CompositeEnemy : CompositeNode<EnemySim, AnimatableModel> {
-		public delegate void EnemyEscapedHandler(CompositeEnemy sender);
-		public event EnemyEscapedHandler EnemyEscaped;
+		public delegate void EnemyHandler(CompositeEnemy sender);
+		public event EnemyHandler EnemyEscaped;
 
-		public event EventHandler EnemyKilled;
+		public event EnemyHandler EnemyKilled;
 
 		//todo: add more stats such as resource drops
 		[ExportCategory("Enemy Stats")]
@@ -19,6 +19,8 @@ namespace MedievalTDIncremental.Game.Enemies {
 		public int Damage { get; set; } = 10;
 		[Export]
 		public float Health { get; set; } = 100;
+		[Export]
+		public float Coins { get; set; } = 10;
 
 		public bool IsMoving { get; set; }
 
@@ -28,6 +30,7 @@ namespace MedievalTDIncremental.Game.Enemies {
 
 		public override void _Ready() {
 			base._Ready();
+			this.Instance2D.Damaged += OnDamaged;
 			this.Pathfinder = new();
 			this.Pathfinder.ReachedEnd += (s, e) => this.EnemyEscaped(this);
 			this.Pathfinder.Turned += direction => this.Direction = direction;
@@ -41,6 +44,16 @@ namespace MedievalTDIncremental.Game.Enemies {
 			if (IsMoving) {
 				this.Position = Pathfinder.GetNextPos(delta * Speed);
 				Instance3D.PlayAnimation("move");
+			}
+		}
+
+		private void OnDamaged(float damage) {
+			this.Health -= damage;
+			if(Health <= 0) {
+				this.Instance3D.PlayAnimation("death");
+				IsMoving = false;
+				this.Instance2D.Free();
+				this.EnemyKilled.Invoke(this);
 			}
 		}
 	}

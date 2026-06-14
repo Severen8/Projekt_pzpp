@@ -31,6 +31,5 @@ public partial class TileMap3D: GridMap {
 			Vector3I newPosition = new Vector3I(tile.TileCoords.X, 0, tile.TileCoords.Y) + equivalent.Offset;
 			this.SetCellItem(newPosition, equivalent.TileType);
 		}
-		GD.Print(this.GetUsedCells());
 	}
 }

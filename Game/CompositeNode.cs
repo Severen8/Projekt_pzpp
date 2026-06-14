@@ -20,6 +20,7 @@ namespace MedievalTDIncremental.Game {
 		protected TNode2D Instance2D { get; set; }
 		protected TNode3D Instance3D { get; set; }
 
+		[Export]
 		public Vector2 Position {
 			get => Instance2D.Position;
 			set {
@@ -29,6 +30,7 @@ namespace MedievalTDIncremental.Game {
 		}
 
 		private Vector2 _direction;
+		[Export]
 		public Vector2 Direction {
 			get => _direction;
 			set {
