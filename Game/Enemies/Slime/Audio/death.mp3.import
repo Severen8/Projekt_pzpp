@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dtu7tgv1ttkot"
-path="res://.godot/imported/death.mp3-60a681dfdf3acc8abe6d9a714a07bf55.mp3str"
+path="res://.godot/imported/death.mp3-af9afd0a8a70cfd90b2170503b82020b.mp3str"
 
 [deps]
 
-source_file="res://Game/Enemies/Golem/Audio/death.mp3"
-dest_files=["res://.godot/imported/death.mp3-60a681dfdf3acc8abe6d9a714a07bf55.mp3str"]
+source_file="res://Game/Enemies/Slime/Audio/death.mp3"
+dest_files=["res://.godot/imported/death.mp3-af9afd0a8a70cfd90b2170503b82020b.mp3str"]
 
 [params]
 
