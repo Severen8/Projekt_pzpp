@@ -27,9 +27,7 @@ namespace MedievalTDIncremental.Game.Towers {
 		}
 
 		void InitNewModel(Node3D model, TierData newTier) {
-			GD.Print("AAAAAAAAAAAA");
 			if (model.IsNodeReady()) {
-				GD.Print("BBBBBBBBB");
 				UpdateModelCache(model);
 				this.IgnoredMeshes.ScrapeMeshes(CurrentModel, newTier.TierLevel.ToString());
 				this.IgnoredMeshes.SetMeshLock(true);
