@@ -14,6 +14,8 @@ namespace MedievalTDIncremental.Game.Enemies {
 		static EnemySpawner() {
 			StringToEnemy = [];
 			AddNewEnemy("Golem");
+			AddNewEnemy("Slime");
+			AddNewEnemy("Skeleton");
 		}
 
 		private static void AddNewEnemy(string enemyName) {

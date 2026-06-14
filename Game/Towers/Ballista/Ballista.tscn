@@ -74,6 +74,7 @@ script = ExtResource("6_3d0ga")
 metadata/_custom_type_script = "uid://g4pbol0rkkb5"
 
 [node name="Sprite2D" type="Sprite2D" parent="Instance2D" unique_id=494294445]
+rotation = -1.5707964
 texture = ExtResource("7_3d0ga")
 
 [node name="Area2D" type="Area2D" parent="Instance2D" unique_id=21132728]

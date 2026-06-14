@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bsu14b4li426i" path="res://Game/View/AudibleAnimation.cs" id="2_2a0yv"]
 [ext_resource type="PackedScene" uid="uid://doqe40d2uk7bl" path="res://Game/Enemies/Golem/Models/Model.fbx" id="2_fnxc3"]
 [ext_resource type="Script" uid="uid://decw2pxe1mc1t" path="res://Game/Enemies/EnemySim.cs" id="5_4jn06"]
-[ext_resource type="Texture2D" uid="uid://dw7lw84yd7cjh" path="res://icon.svg" id="6_r8fe0"]
+[ext_resource type="Texture2D" uid="uid://cjfxf4q42mhxh" path="res://Assets/GUI/UI_PlayerInfo/Wave_Mobs/Icon_Golem.png" id="6_j2ym0"]
 
 [sub_resource type="Resource" id="Resource_01tfe"]
 script = ExtResource("2_2a0yv")
@@ -37,7 +37,7 @@ EndTime = 2.51
 metadata/_custom_type_script = "uid://bsu14b4li426i"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwvq0"]
-size = Vector2(128, 127)
+size = Vector2(78, 76)
 
 [node name="Golem" type="Node" unique_id=1271314349]
 script = ExtResource("1_j2ym0")
@@ -62,7 +62,8 @@ script = ExtResource("5_4jn06")
 metadata/_custom_type_script = "uid://decw2pxe1mc1t"
 
 [node name="Sprite2D" type="Sprite2D" parent="Instance2D" unique_id=1399965901]
-texture = ExtResource("6_r8fe0")
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("6_j2ym0")
 
 [node name="Area2D" type="Area2D" parent="Instance2D" unique_id=1444046822]
 collision_layer = 2

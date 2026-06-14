@@ -14,7 +14,7 @@ public partial class Round : Node
 	public int Lives { get; private set; }
 	public float Money { get; private set; }
 	public List<Vector2> Path { get; private set; }
-	public VisibilityMode VisMode { get; private set; } = VisibilityMode.THREE_DIM;
+	public VisibilityMode VisMode { get; private set; } = VisibilityMode.TWO_DIM;
 
 	WaveHandler WaveHandler { get; set; }
 	EnemyHandler EnemyHandler { get; set; }
@@ -42,6 +42,10 @@ public partial class Round : Node
 		this.TowerHandler = new();
 		this.AddChild(TowerHandler);
 		TowerHandler.BuildTower(ResourceLoader.Load<PackedScene>("res://Game/Towers/Ballista/Ballista.tscn"), new Vector2(1, 8)*64+new Vector2(32, 32));
+		TowerHandler.BuildTower(ResourceLoader.Load<PackedScene>("res://Game/Towers/Ballista/Ballista.tscn"), new Vector2(7, 6) * 64 + new Vector2(32, 32));
+		TowerHandler.BuildTower(ResourceLoader.Load<PackedScene>("res://Game/Towers/Ballista/Ballista.tscn"), new Vector2(9, 6) * 64 + new Vector2(32, 32));
+		TowerHandler.BuildTower(ResourceLoader.Load<PackedScene>("res://Game/Towers/Ballista/Ballista.tscn"), new Vector2(11, 2) * 64 + new Vector2(32, 32));
+		TowerHandler.BuildTower(ResourceLoader.Load<PackedScene>("res://Game/Towers/Ballista/Ballista.tscn"), new Vector2(5, 6) * 64 + new Vector2(32, 32));
 	}
 
 

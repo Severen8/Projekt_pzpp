@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://235er064g8ok"]
+[gd_scene format=3 uid="uid://cqybwctc4iqfw"]
 
 [ext_resource type="Script" uid="uid://bme5trtc7xss3" path="res://Game/View/AnimatableModel.cs" id="1_g1wj7"]
+[ext_resource type="Script" uid="uid://fw6j70ly8o36" path="res://Game/Enemies/CompositeEnemy.cs" id="1_slel6"]
 [ext_resource type="Script" uid="uid://bsu14b4li426i" path="res://Game/View/AudibleAnimation.cs" id="2_l12jj"]
 [ext_resource type="PackedScene" uid="uid://c8tgp7rdoncwk" path="res://Game/Enemies/Slime/Models/Model.fbx" id="3_8qudw"]
+[ext_resource type="Script" uid="uid://decw2pxe1mc1t" path="res://Game/Enemies/EnemySim.cs" id="4_y7yh8"]
+[ext_resource type="Texture2D" uid="uid://b1bbu5ucmywir" path="res://Assets/GUI/UI_PlayerInfo/Wave_Mobs/Icon_Slime.png" id="5_slel6"]
 
 [sub_resource type="Resource" id="Resource_slel6"]
 script = ExtResource("2_l12jj")
@@ -15,7 +18,18 @@ script = ExtResource("2_l12jj")
 EndTime = 2.12
 metadata/_custom_type_script = "uid://bsu14b4li426i"
 
-[node name="Slime" type="Node3D" unique_id=166062724]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7yh8"]
+size = Vector2(37, 36)
+
+[node name="Slime" type="Node" unique_id=614664600]
+script = ExtResource("1_slel6")
+Speed = 40.0
+Damage = 3
+Health = 20.0
+Coins = 1.0
+metadata/_custom_type_script = "uid://fw6j70ly8o36"
+
+[node name="Instance3D" type="Node3D" parent="." unique_id=166062724]
 script = ExtResource("1_g1wj7")
 Animations = Dictionary[String, Object]({
 "death": SubResource("Resource_slel6"),
@@ -23,4 +37,20 @@ Animations = Dictionary[String, Object]({
 })
 metadata/_custom_type_script = "uid://bme5trtc7xss3"
 
-[node name="Model" parent="." unique_id=1577506734 instance=ExtResource("3_8qudw")]
+[node name="Model" parent="Instance3D" unique_id=1577506734 instance=ExtResource("3_8qudw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Instance2D" type="AnimatableBody2D" parent="." unique_id=1384003748]
+script = ExtResource("4_y7yh8")
+metadata/_custom_type_script = "uid://decw2pxe1mc1t"
+
+[node name="Sprite2D" type="Sprite2D" parent="Instance2D" unique_id=1113354418]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_slel6")
+
+[node name="Area2D" type="Area2D" parent="Instance2D" unique_id=757776516]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Instance2D/Area2D" unique_id=2062272632]
+shape = SubResource("RectangleShape2D_y7yh8")

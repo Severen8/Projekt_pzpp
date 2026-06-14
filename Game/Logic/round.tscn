@@ -9,9 +9,8 @@
 
 [sub_resource type="Resource" id="Resource_hc0mv"]
 script = ExtResource("5_xt5m0")
-EnemyType = "Golem"
-EnemyCount = 4
-StartDelay = 1.0
+EnemyType = "Slime"
+EnemyCount = 5
 metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
 
 [sub_resource type="Resource" id="Resource_5pfrj"]
@@ -21,14 +20,15 @@ metadata/_custom_type_script = "uid://chapfbdi7o6uv"
 
 [sub_resource type="Resource" id="Resource_rxdkk"]
 script = ExtResource("5_xt5m0")
-EnemyType = "Golem"
+EnemyType = "Slime"
 EnemyCount = 5
 BetweenDelay = 0.4
 metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
 
 [sub_resource type="Resource" id="Resource_itbp5"]
 script = ExtResource("5_xt5m0")
-EnemyType = "Golem"
+EnemyType = "Skeleton"
+EnemyCount = 2
 StartDelay = 3.0
 metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
 
@@ -39,14 +39,32 @@ metadata/_custom_type_script = "uid://chapfbdi7o6uv"
 
 [sub_resource type="Resource" id="Resource_sh6fp"]
 script = ExtResource("5_xt5m0")
-EnemyType = "Golem"
+EnemyType = "Skeleton"
+EnemyCount = 4
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_j47d2"]
+script = ExtResource("5_xt5m0")
+EnemyType = "Slime"
 EnemyCount = 10
-BetweenDelay = 0.2
+BetweenDelay = 0.8
 metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
 
 [sub_resource type="Resource" id="Resource_ehr7v"]
 script = ExtResource("6_t3naw")
-Subwaves = Array[Object]([SubResource("Resource_sh6fp")])
+Subwaves = Array[Object]([SubResource("Resource_sh6fp"), SubResource("Resource_j47d2")])
+metadata/_custom_type_script = "uid://chapfbdi7o6uv"
+
+[sub_resource type="Resource" id="Resource_xt5m0"]
+script = ExtResource("5_xt5m0")
+EnemyType = "Golem"
+EnemyCount = 3
+BetweenDelay = 3.0
+metadata/_custom_type_script = "uid://ccfmfwbqn47ra"
+
+[sub_resource type="Resource" id="Resource_t3naw"]
+script = ExtResource("6_t3naw")
+Subwaves = Array[Object]([SubResource("Resource_xt5m0")])
 metadata/_custom_type_script = "uid://chapfbdi7o6uv"
 
 [node name="Round" type="Node" unique_id=980906161]
@@ -85,6 +103,6 @@ omni_attenuation = 0.5
 
 [node name="WaveHandler" type="Node" parent="." unique_id=127260335]
 script = ExtResource("4_j47d2")
-Waves = Array[Object]([SubResource("Resource_5pfrj"), SubResource("Resource_y3u3y"), SubResource("Resource_ehr7v")])
+Waves = Array[Object]([SubResource("Resource_5pfrj"), SubResource("Resource_y3u3y"), SubResource("Resource_ehr7v"), SubResource("Resource_t3naw")])
 
 [editable path="PathLayer"]
